@@ -24,3 +24,6 @@ Recordings/
 # OS files
 .DS_Store
 Thumbs.db
+
+Assets/UnityJapanOffice/
+Assets/HDRPDefaultResources/
