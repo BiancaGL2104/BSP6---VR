@@ -9,7 +9,6 @@ public class MemoryGameManager : MonoBehaviour
     public List<MemoryCard> allCards = new List<MemoryCard>();
 
     [Header("Logging")]
-    public EventLogger eventLogger;
     public int roundIndex = 1;
     public string conditionId = "C1";
 
@@ -67,7 +66,7 @@ public class MemoryGameManager : MonoBehaviour
 
         AssignShuffledCardIds();
 
-        roundStartTime = Time.time;
+        roundStartTime = Time.realtimeSinceStartup;
         roundActive = true;
         SetStatus("Round active");
 
@@ -84,14 +83,9 @@ public class MemoryGameManager : MonoBehaviour
 
         Debug.Log("ROUND START");
 
-        if (eventLogger != null)
+        if (ExperimentEventManager.Instance != null)
         {
-            eventLogger.LogEvent(
-                "ROUND_START",
-                roundIndex,
-                conditionId,
-                "NA"
-            );
+            ExperimentEventManager.Instance.LogRoundStart(roundIndex, conditionId);
         }
 
         if (visualDistractorManager != null && conditionManager != null)
@@ -175,15 +169,13 @@ public class MemoryGameManager : MonoBehaviour
 
         Debug.Log("Total Flips: " + totalFlips);
 
-        if (eventLogger != null)
+        if (ExperimentEventManager.Instance != null)
         {
-            eventLogger.LogEvent(
-                "CARD_SELECTED",
-                roundIndex,
-                conditionId,
+            string selectionOrder = (firstSelected == null) ? "FIRST" : "SECOND";
+            ExperimentEventManager.Instance.LogCardFlip(
                 card.name,
                 "pair_" + card.cardId,
-                totalFlips.ToString()
+                selectionOrder
             );
         }
 
@@ -218,20 +210,16 @@ public class MemoryGameManager : MonoBehaviour
             SetStatus("Match");
             Debug.Log("Matched Pairs: " + matchedPairs + " / " + totalPairs);
 
-            if (eventLogger != null)
+            if (ExperimentEventManager.Instance != null)
             {
-                eventLogger.LogEvent(
-                    "MATCH",
-                    roundIndex,
-                    conditionId,
-                    "pair_" + firstSelected.cardId
+                ExperimentEventManager.Instance.LogMatch(
+                    firstSelected.name,
+                    secondSelected.name
                 );
             }
         }
         else
         {
-            string mismatchObjectIds = firstSelected.name + "|" + secondSelected.name;
-
             firstSelected.Flip();
             secondSelected.Flip();
             mismatchCount++;
@@ -240,13 +228,11 @@ public class MemoryGameManager : MonoBehaviour
             SetStatus("Mismatch");
             Debug.Log("Mismatch Count: " + mismatchCount);
 
-            if (eventLogger != null)
+            if (ExperimentEventManager.Instance != null)
             {
-                eventLogger.LogEvent(
-                    "MISMATCH",
-                    roundIndex,
-                    conditionId,
-                    mismatchObjectIds
+                ExperimentEventManager.Instance.LogMismatch(
+                    firstSelected.name,
+                    secondSelected.name
                 );
             }
         }
@@ -264,7 +250,7 @@ public class MemoryGameManager : MonoBehaviour
     private void CompleteRound()
     {
         roundActive = false;
-        float roundTime = Time.time - roundStartTime;
+        float roundTime = Time.realtimeSinceStartup - roundStartTime;
 
         Debug.Log("=== ROUND COMPLETE ===");
         SetStatus("Round complete");
@@ -272,13 +258,9 @@ public class MemoryGameManager : MonoBehaviour
         Debug.Log("Final Flips: " + totalFlips);
         Debug.Log("Final Mismatches: " + mismatchCount);
 
-        if (eventLogger != null)
+        if (ExperimentEventManager.Instance != null)
         {
-            eventLogger.LogEvent(
-                "ROUND_END",
-                roundIndex,
-                conditionId,
-                "NA",
+            ExperimentEventManager.Instance.LogRoundEnd(
                 roundTime.ToString("F2"),
                 mismatchCount.ToString()
             );
