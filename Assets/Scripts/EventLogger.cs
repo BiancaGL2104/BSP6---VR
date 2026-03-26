@@ -40,7 +40,7 @@ public class EventLogger : MonoBehaviour
             InitializeLogger();
         }
 
-        float timestamp = Time.time;
+        float timestamp = Time.realtimeSinceStartup;
 
         string line = timestamp + "," +
                       eventType + "," +

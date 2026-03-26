@@ -2,35 +2,48 @@ using UnityEngine;
 
 public class EventTester : MonoBehaviour
 {
-    public EventLogger logger;
-
-    public void LogRoundStart()
+    public void TestExperimentStart()
     {
-        logger.LogEvent("ROUND_START", 1, "C1", "NA");
+        ExperimentEventManager.Instance.LogExperimentStart();
     }
 
-    public void LogCard()
+    public void TestRoundStart()
     {
-        logger.LogEvent("CARD_SELECTED", 1, "C1", "Card_1_2", "pair_3", "1");
+        ExperimentEventManager.Instance.LogRoundStart(1, "VISUAL_LEFT");
     }
 
-    public void LogMatch()
+    public void TestCardFlip()
     {
-        logger.LogEvent("MATCH", 1, "C1", "pair_3");
+        ExperimentEventManager.Instance.LogCardFlip("Card_01", "Pair_A", "FIRST");
     }
 
-    public void LogMismatch()
+    public void TestMatch()
     {
-        logger.LogEvent("MISMATCH", 1, "C1", "Card_1_2|Card_3_1");
+        ExperimentEventManager.Instance.LogMatch("Card_01", "Card_02");
     }
 
-    public void LogDistractor()
+    public void TestMismatch()
     {
-        logger.LogEvent("DISTRACTOR_ON", 1, "C1", "visual_left", "peripheral");
+        ExperimentEventManager.Instance.LogMismatch("Card_01", "Card_07");
     }
 
-    public void LogRoundEnd()
+    public void TestDistractorOn()
     {
-        logger.LogEvent("ROUND_END", 1, "C1", "NA");
+        ExperimentEventManager.Instance.LogDistractorOn("Distractor_Left", "VISUAL");
+    }
+
+    public void TestDistractorOff()
+    {
+        ExperimentEventManager.Instance.LogDistractorOff("Distractor_Left", "VISUAL");
+    }
+
+    public void TestRoundEnd()
+    {
+        ExperimentEventManager.Instance.LogRoundEnd();
+    }
+
+    public void TestExperimentEnd()
+    {
+        ExperimentEventManager.Instance.LogExperimentEnd();
     }
 }
