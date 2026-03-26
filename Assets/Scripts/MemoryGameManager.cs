@@ -13,6 +13,9 @@ public class MemoryGameManager : MonoBehaviour
     public int roundIndex = 1;
     public string conditionId = "C1";
 
+    [Header("Condition Reference")]
+    public ConditionManager conditionManager;
+
     [Header("Selection")]
     public MemoryCard firstSelected;
     public MemoryCard secondSelected;
@@ -32,26 +35,23 @@ public class MemoryGameManager : MonoBehaviour
 
     [Header("UI")]
     public TMP_Text statusText;
+    public TMP_Text conditionText;
 
-    [Header("Distractors")]
-    public GameObject visualDistractor;
-
-    public enum ConditionType
-    {
-        C1_NoDistractor,
-        C2_VisualDistractor
-    }
-
-    [Header("Condition Settings")]
-    public ConditionType currentCondition = ConditionType.C1_NoDistractor;
+    [Header("Manager References")]
+    public VisualDistractorManager visualDistractorManager;
 
     private void Start()
     {
         SetStatus("Waiting for round start");
 
-        if (visualDistractor != null)
+        if (visualDistractorManager != null)
         {
-            visualDistractor.SetActive(false);
+            visualDistractorManager.HideDistractor();
+        }
+
+        if (conditionText != null)
+        {
+            conditionText.text = "Condition: Waiting";
         }
     }
 
@@ -70,7 +70,17 @@ public class MemoryGameManager : MonoBehaviour
         roundStartTime = Time.time;
         roundActive = true;
         SetStatus("Round active");
-        conditionId = currentCondition.ToString();
+
+        if (conditionManager != null)
+        {
+            conditionId = conditionManager.GetConditionId();
+        }
+        else
+        {
+            conditionId = "NO_CONDITION_MANAGER";
+        }
+
+        UpdateConditionText();
 
         Debug.Log("ROUND START");
 
@@ -84,10 +94,29 @@ public class MemoryGameManager : MonoBehaviour
             );
         }
 
-        if (visualDistractor != null)
+        if (visualDistractorManager != null && conditionManager != null)
         {
-            bool shouldShow = (currentCondition == ConditionType.C2_VisualDistractor);
-            visualDistractor.SetActive(shouldShow);
+            Debug.Log("Condition is: " + conditionManager.GetConditionId());
+
+            if (conditionManager.currentCondition == ConditionManager.ConditionType.C2_VisualPredictable)
+            {
+                Debug.Log("Showing predictable visual distractor at zone 0");
+                visualDistractorManager.ShowDistractorAtZone(0);
+            }
+            else if (conditionManager.currentCondition == ConditionManager.ConditionType.C3_VisualUnpredictable)
+            {
+                Debug.Log("Showing unpredictable visual distractor at random zone");
+                visualDistractorManager.ShowDistractorAtRandomZone();
+            }
+            else
+            {
+                Debug.Log("No visual distractor for this condition");
+                visualDistractorManager.HideDistractor();
+            }
+        }
+        else
+        {
+            Debug.Log("Missing visualDistractorManager or conditionManager reference");
         }
     }
 
@@ -255,9 +284,26 @@ public class MemoryGameManager : MonoBehaviour
             );
         }
 
-        if (visualDistractor != null)
+        if (visualDistractorManager != null)
         {
-            visualDistractor.SetActive(false);
+            visualDistractorManager.HideDistractor();
         }
+
+        conditionId = "NONE";
+        UpdateConditionText();
+    }
+
+    private void UpdateConditionText()
+    {
+        if (conditionText != null)
+        {
+            conditionText.text = "Condition: " + conditionId;
+        }
+    }
+
+    public void EndRoundForDebug()
+    {
+        Debug.Log("DEBUG ROUND END BUTTON PRESSED");
+        CompleteRound();
     }
 }
