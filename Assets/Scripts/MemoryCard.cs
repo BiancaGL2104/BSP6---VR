@@ -23,6 +23,8 @@ public class MemoryCard : MonoBehaviour
     // This is the method your debug buttons should call
     public void SelectCard()
     {
+        Debug.Log("CARD SELECTED: " + gameObject.name);
+
         if (gameManager != null)
         {
             gameManager.SelectCard(this);
@@ -30,7 +32,7 @@ public class MemoryCard : MonoBehaviour
         else
         {
             Debug.LogWarning("No gameManager assigned on " + gameObject.name);
-        }
+        }   
     }
 
     public void Flip()
