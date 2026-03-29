@@ -9,10 +9,8 @@ public class VisualDistractorManager : MonoBehaviour
     [Header("Distractor Object")]
     public GameObject distractorObject;
 
-    [Header("Logging")]
-    public EventLogger eventLogger;
+    [Header("Condition Reference")]
     public ConditionManager conditionManager;
-    public int roundIndex = 1;
 
     public void HideDistractor()
     {
@@ -20,13 +18,11 @@ public class VisualDistractorManager : MonoBehaviour
         {
             distractorObject.SetActive(false);
 
-            if (eventLogger != null && conditionManager != null)
+            if (ExperimentEventManager.Instance != null)
             {
-                eventLogger.LogEvent(
-                    "VISUAL_DISTRACTOR_OFF",
-                    roundIndex,
-                    conditionManager.GetConditionId(),
-                    "NA"
+                ExperimentEventManager.Instance.LogDistractorOff(
+                    "VisualDistractor",
+                    "VISUAL"
                 );
             }
         }
@@ -42,17 +38,45 @@ public class VisualDistractorManager : MonoBehaviour
         distractorObject.transform.rotation = visualZones[zoneIndex].rotation;
         distractorObject.SetActive(true);
 
-        Debug.Log("Visual distractor shown at zone: " + visualZones[zoneIndex].name);
+        string zoneName = visualZones[zoneIndex].name;
+        Debug.Log("Visual distractor shown at zone: " + zoneName);
 
-        if (eventLogger != null && conditionManager != null)
+        if (ExperimentEventManager.Instance != null)
         {
-            eventLogger.LogEvent(
-                "VISUAL_DISTRACTOR_ON",
-                roundIndex,
-                conditionManager.GetConditionId(),
-                visualZones[zoneIndex].name
+            string distractorType = "VISUAL";
+
+            if (conditionManager != null)
+            {
+                if (conditionManager.IsVisualPredictable())
+                {
+                    distractorType = "VISUAL_PREDICTABLE";
+                }
+                else if (conditionManager.IsVisualUnpredictable())
+                {
+                    distractorType = "VISUAL_UNPREDICTABLE";
+                }
+                else
+                {
+                    distractorType = "VISUAL_OFF";
+                }
+            }
+
+            ExperimentEventManager.Instance.LogDistractorOn(
+                zoneName,
+                distractorType
             );
         }
+    }
+
+    public void ShowDistractorAtRandomZone()
+    {
+        if (distractorObject == null) return;
+        if (visualZones == null || visualZones.Count == 0) return;
+
+        int randomIndex = Random.Range(0, visualZones.Count);
+        ShowDistractorAtZone(randomIndex);
+
+        Debug.Log("Random visual distractor zone selected: " + randomIndex);
     }
 
     private void Update()
@@ -72,17 +96,4 @@ public class VisualDistractorManager : MonoBehaviour
             HideDistractor();
         }
     }
-
-    public void ShowDistractorAtRandomZone()
-    {
-        if (distractorObject == null) return;
-        if (visualZones == null || visualZones.Count == 0) return;
-
-        int randomIndex = Random.Range(0, visualZones.Count);
-        ShowDistractorAtZone(randomIndex);
-
-        Debug.Log("Random visual distractor zone selected: " + randomIndex);
-    }
-
-
 }

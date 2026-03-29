@@ -5,6 +5,7 @@ public class ExperimentEventManager : MonoBehaviour
     public static ExperimentEventManager Instance { get; private set; }
 
     [SerializeField] private EventLogger eventLogger;
+    [SerializeField] private LSLEventStreamer lslEventStreamer;
 
     private int currentRoundIndex = -1;
     private string currentConditionId = "NA";
@@ -23,26 +24,63 @@ public class ExperimentEventManager : MonoBehaviour
         {
             eventLogger = GetComponent<EventLogger>();
         }
+
+        if (lslEventStreamer == null)
+        {
+            lslEventStreamer = FindFirstObjectByType<LSLEventStreamer>();
+        }
+    }
+
+    private void LogToAllOutputs(
+        string eventType,
+        int roundIndex,
+        string conditionId,
+        string objectId,
+        string extra1 = "NA",
+        string extra2 = "NA"
+    )
+    {
+        if (eventLogger != null)
+        {
+            eventLogger.LogEvent(
+                eventType: eventType,
+                roundIndex: roundIndex,
+                conditionId: conditionId,
+                objectId: objectId,
+                extra1: extra1,
+                extra2: extra2
+            );
+        }
+        else
+        {
+            Debug.LogWarning("[ExperimentEventManager] EventLogger reference missing.");
+        }
+
+        if (lslEventStreamer != null)
+        {
+            lslEventStreamer.SendStructuredMarker(
+                eventType: eventType,
+                roundIndex: roundIndex,
+                conditionId: conditionId,
+                objectId: objectId,
+                extra1: extra1,
+                extra2: extra2
+            );
+        }
+        else
+        {
+            Debug.LogWarning("[ExperimentEventManager] LSLEventStreamer reference missing.");
+        }
     }
 
     public void LogExperimentStart()
     {
-        eventLogger.LogEvent(
-            eventType: "EXPERIMENT_START",
-            roundIndex: -1,
-            conditionId: "NA",
-            objectId: "SYSTEM"
-        );
+        LogToAllOutputs("EXPERIMENT_START", -1, "NA", "SYSTEM");
     }
 
     public void LogExperimentEnd()
     {
-        eventLogger.LogEvent(
-            eventType: "EXPERIMENT_END",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: "SYSTEM"
-        );
+        LogToAllOutputs("EXPERIMENT_END", currentRoundIndex, currentConditionId, "SYSTEM");
     }
 
     public void LogRoundStart(int roundIndex, string conditionId)
@@ -50,99 +88,94 @@ public class ExperimentEventManager : MonoBehaviour
         currentRoundIndex = roundIndex;
         currentConditionId = conditionId;
 
-        eventLogger.LogEvent(
-            eventType: "ROUND_START",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: "ROUND"
-        );
+        LogToAllOutputs("ROUND_START", currentRoundIndex, currentConditionId, "ROUND");
     }
 
     public void LogRoundEnd(string roundTime = "NA", string mismatchCount = "NA")
     {
-        eventLogger.LogEvent(
-            eventType: "ROUND_END",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: "ROUND",
-            extra1: roundTime,
-            extra2: mismatchCount
+        LogToAllOutputs(
+            "ROUND_END",
+            currentRoundIndex,
+            currentConditionId,
+            "ROUND",
+            roundTime,
+            mismatchCount
         );
     }
 
     public void LogCardFlip(string cardId, string pairId, string selectionOrder)
     {
-        eventLogger.LogEvent(
-            eventType: "CARD_FLIP",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: cardId,
-            extra1: pairId,
-            extra2: selectionOrder
+        LogToAllOutputs(
+            "CARD_FLIP",
+            currentRoundIndex,
+            currentConditionId,
+            cardId,
+            pairId,
+            selectionOrder
         );
     }
 
     public void LogMatch(string firstCardId, string secondCardId)
     {
-        eventLogger.LogEvent(
-            eventType: "MATCH",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: firstCardId,
-            extra1: secondCardId
+        LogToAllOutputs(
+            "MATCH",
+            currentRoundIndex,
+            currentConditionId,
+            firstCardId,
+            secondCardId
         );
     }
 
     public void LogMismatch(string firstCardId, string secondCardId)
     {
-        eventLogger.LogEvent(
-            eventType: "MISMATCH",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: firstCardId,
-            extra1: secondCardId
+        LogToAllOutputs(
+            "MISMATCH",
+            currentRoundIndex,
+            currentConditionId,
+            firstCardId,
+            secondCardId
         );
     }
 
     public void LogDistractorOn(string distractorId, string distractorType)
     {
-        eventLogger.LogEvent(
-            eventType: "DISTRACTOR_ON",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: distractorId,
-            extra1: distractorType
+        LogToAllOutputs(
+            "DISTRACTOR_ON",
+            currentRoundIndex,
+            currentConditionId,
+            distractorId,
+            distractorType
         );
     }
 
     public void LogDistractorOff(string distractorId, string distractorType)
     {
-        eventLogger.LogEvent(
-            eventType: "DISTRACTOR_OFF",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: distractorId,
-            extra1: distractorType
+        LogToAllOutputs(
+            "DISTRACTOR_OFF",
+            currentRoundIndex,
+            currentConditionId,
+            distractorId,
+            distractorType
         );
     }
 
     public void LogQuestionnaireStart(string questionnaireId)
     {
-        eventLogger.LogEvent(
-            eventType: "QUESTIONNAIRE_START",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: questionnaireId
+        LogToAllOutputs(
+            "QUESTIONNAIRE_START",
+            currentRoundIndex,
+            currentConditionId,
+            questionnaireId
         );
     }
 
     public void LogQuestionnaireEnd(string questionnaireId)
     {
-        eventLogger.LogEvent(
-            eventType: "QUESTIONNAIRE_END",
-            roundIndex: currentRoundIndex,
-            conditionId: currentConditionId,
-            objectId: questionnaireId
+        LogToAllOutputs(
+            "QUESTIONNAIRE_END",
+            currentRoundIndex,
+            currentConditionId,
+            questionnaireId
         );
     }
 }

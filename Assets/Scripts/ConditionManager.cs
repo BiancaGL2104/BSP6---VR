@@ -2,45 +2,120 @@ using UnityEngine;
 
 public class ConditionManager : MonoBehaviour
 {
-    public enum ConditionType
+    public enum VisualCondition
     {
-        C1_NoDistractor,
-        C2_VisualPredictable,
-        C3_VisualUnpredictable,
-        C4_AudioPredictable,
-        C5_AudioUnpredictable
-        // C6_Multimodal   // optional later
+        Off,
+        Predictable,
+        Unpredictable
+    }
+
+    public enum AudioCondition
+    {
+        Off,
+        Predictable,
+        Unpredictable
     }
 
     [Header("Current Condition")]
-    public ConditionType currentCondition = ConditionType.C1_NoDistractor;
+    public VisualCondition currentVisualCondition = VisualCondition.Off;
+    public AudioCondition currentAudioCondition = AudioCondition.Off;
 
     public bool UseVisualDistractor()
     {
-        return currentCondition == ConditionType.C2_VisualPredictable ||
-               currentCondition == ConditionType.C3_VisualUnpredictable;
+        return currentVisualCondition != VisualCondition.Off;
     }
 
     public bool UseAudioDistractor()
     {
-        return currentCondition == ConditionType.C4_AudioPredictable ||
-               currentCondition == ConditionType.C5_AudioUnpredictable;
+        return currentAudioCondition != AudioCondition.Off;
     }
 
-    public bool IsPredictable()
+    public bool IsVisualPredictable()
     {
-        return currentCondition == ConditionType.C2_VisualPredictable ||
-               currentCondition == ConditionType.C4_AudioPredictable;
+        return currentVisualCondition == VisualCondition.Predictable;
     }
 
-    public bool IsUnpredictable()
+    public bool IsVisualUnpredictable()
     {
-        return currentCondition == ConditionType.C3_VisualUnpredictable ||
-               currentCondition == ConditionType.C5_AudioUnpredictable;
+        return currentVisualCondition == VisualCondition.Unpredictable;
+    }
+
+    public bool IsAudioPredictable()
+    {
+        return currentAudioCondition == AudioCondition.Predictable;
+    }
+
+    public bool IsAudioUnpredictable()
+    {
+        return currentAudioCondition == AudioCondition.Unpredictable;
     }
 
     public string GetConditionId()
     {
-        return currentCondition.ToString();
+        return GetCombinedConditionId(currentVisualCondition, currentAudioCondition);
+    }
+
+    public string GetVisualConditionLabel()
+    {
+        return "Visual" + currentVisualCondition.ToString();
+    }
+
+    public string GetAudioConditionLabel()
+    {
+        return "Audio" + currentAudioCondition.ToString();
+    }
+
+    public static string GetCombinedConditionId(VisualCondition visual, AudioCondition audio)
+    {
+        int conditionNumber = GetConditionNumber(visual, audio);
+
+        return $"C{conditionNumber}_{GetVisualLabel(visual)}_{GetAudioLabel(audio)}";
+    }
+
+    private static int GetConditionNumber(VisualCondition visual, AudioCondition audio)
+    {
+        if (visual == VisualCondition.Off && audio == AudioCondition.Off) return 1;
+        if (visual == VisualCondition.Predictable && audio == AudioCondition.Off) return 2;
+        if (visual == VisualCondition.Unpredictable && audio == AudioCondition.Off) return 3;
+
+        if (visual == VisualCondition.Off && audio == AudioCondition.Predictable) return 4;
+        if (visual == VisualCondition.Predictable && audio == AudioCondition.Predictable) return 5;
+        if (visual == VisualCondition.Unpredictable && audio == AudioCondition.Predictable) return 6;
+
+        if (visual == VisualCondition.Off && audio == AudioCondition.Unpredictable) return 7;
+        if (visual == VisualCondition.Predictable && audio == AudioCondition.Unpredictable) return 8;
+        if (visual == VisualCondition.Unpredictable && audio == AudioCondition.Unpredictable) return 9;
+
+        return 0;
+    }
+
+    private static string GetVisualLabel(VisualCondition visual)
+    {
+        switch (visual)
+        {
+            case VisualCondition.Off:
+                return "VisualOff";
+            case VisualCondition.Predictable:
+                return "VisualPredictable";
+            case VisualCondition.Unpredictable:
+                return "VisualUnpredictable";
+            default:
+                return "VisualUnknown";
+        }
+    }
+
+    private static string GetAudioLabel(AudioCondition audio)
+    {
+        switch (audio)
+        {
+            case AudioCondition.Off:
+                return "AudioOff";
+            case AudioCondition.Predictable:
+                return "AudioPredictable";
+            case AudioCondition.Unpredictable:
+                return "AudioUnpredictable";
+            default:
+                return "AudioUnknown";
+        }
     }
 }

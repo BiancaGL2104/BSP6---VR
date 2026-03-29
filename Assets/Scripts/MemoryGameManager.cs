@@ -10,7 +10,7 @@ public class MemoryGameManager : MonoBehaviour
 
     [Header("Logging")]
     public int roundIndex = 1;
-    public string conditionId = "C1";
+    public string conditionId = "C1_NoDistractor";
 
     [Header("Condition Reference")]
     public ConditionManager conditionManager;
@@ -92,12 +92,12 @@ public class MemoryGameManager : MonoBehaviour
         {
             Debug.Log("Condition is: " + conditionManager.GetConditionId());
 
-            if (conditionManager.currentCondition == ConditionManager.ConditionType.C2_VisualPredictable)
+            if (conditionManager.IsVisualPredictable())
             {
                 Debug.Log("Showing predictable visual distractor at zone 0");
                 visualDistractorManager.ShowDistractorAtZone(0);
             }
-            else if (conditionManager.currentCondition == ConditionManager.ConditionType.C3_VisualUnpredictable)
+            else if (conditionManager.IsVisualUnpredictable())
             {
                 Debug.Log("Showing unpredictable visual distractor at random zone");
                 visualDistractorManager.ShowDistractorAtRandomZone();

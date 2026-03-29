@@ -405,7 +405,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogMatch
         m_Mode: 1
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogRoundStart
         m_Mode: 1
@@ -765,7 +765,12 @@ Transform:
   m_LocalPosition: {x: -2.84481, y: 5.15, z: -4.29509}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1743158380}
+  - {fileID: 1172030760}
+  - {fileID: 1429199776}
+  - {fileID: 1899345007}
+  - {fileID: 359341052}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154358779
@@ -1727,7 +1732,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -2181,7 +2186,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -2465,7 +2470,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogDistractor
         m_Mode: 1
@@ -2782,6 +2787,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 444927715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &359341051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359341052}
+  - component: {fileID: 359341053}
+  m_Layer: 0
+  m_Name: ExperimentEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &359341052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359341051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 152056932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &359341053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359341051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f770ed26a52643989e638e80fe62095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExperimentEventManager
+  eventLogger: {fileID: 1429199775}
+  lslEventStreamer: {fileID: 1743158381}
 --- !u!1 &401622926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,7 +2916,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -5106,37 +5157,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649977187}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &651851410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 651851411}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &651851411
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651851410}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.84481, y: 5.15, z: -4.29509}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667436599
 GameObject:
   m_ObjectHideFlags: 0
@@ -5322,7 +5342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -5467,7 +5487,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -5643,7 +5663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -6515,7 +6535,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -7022,9 +7042,7 @@ MonoBehaviour:
   - {fileID: 1677010107}
   - {fileID: 1858862565}
   distractorObject: {fileID: 1231850200}
-  eventLogger: {fileID: 1429199775}
   conditionManager: {fileID: 1899345006}
-  roundIndex: 1
 --- !u!1 &986714195
 GameObject:
   m_ObjectHideFlags: 0
@@ -8058,7 +8076,6 @@ MonoBehaviour:
   - {fileID: 1415740024}
   - {fileID: 1687888799}
   - {fileID: 649977189}
-  eventLogger: {fileID: 1429199775}
   roundIndex: 1
   conditionId: C1
   conditionManager: {fileID: 1899345006}
@@ -8082,11 +8099,11 @@ Transform:
   m_GameObject: {fileID: 1172030758}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.2, z: -0.3}
+  m_LocalPosition: {x: 2.84481, y: 3.0499997, z: 3.9950902}
   m_LocalScale: {x: 8, y: 0.1, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 152056932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1172475903
 GameObject:
@@ -8784,7 +8801,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -9814,12 +9831,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429199774}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48783, y: 5.90653, z: 3.75}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.35698, y: 0.7565298, z: 8.04509}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 152056932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1429699127
 GameObject:
@@ -10041,7 +10058,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -10711,7 +10728,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -10951,7 +10968,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -11096,7 +11113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -11695,7 +11712,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -11757,7 +11774,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740340217}
   m_CullTransparentMesh: 1
---- !u!1 &1751591082
+--- !u!1 &1743158379
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11765,29 +11782,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1751591083}
+  - component: {fileID: 1743158380}
+  - component: {fileID: 1743158381}
   m_Layer: 0
-  m_Name: Debug
+  m_Name: LSLEventStreamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1751591083
+--- !u!4 &1743158380
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751591082}
+  m_GameObject: {fileID: 1743158379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.84481, y: 5.15, z: -4.29509}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 152056932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1743158381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743158379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b720a40a41494223a918367d89477ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LSLEventStreamer
+  streamName: UnityExperimentEvents
+  streamType: Markers
+  sourceId: bsp6.unity.events
 --- !u!1 &1758208748
 GameObject:
   m_ObjectHideFlags: 0
@@ -11925,51 +11958,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758208748}
   m_CullTransparentMesh: 1
---- !u!1 &1761461125
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1761461127}
-  - component: {fileID: 1761461126}
-  m_Layer: 0
-  m_Name: EventTester
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1761461126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761461125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09f190fc2a7fa4d47a385b73df8ae630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EventTester
-  logger: {fileID: 1429199775}
---- !u!4 &1761461127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761461125}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.84481, y: 5.15, z: -4.29509}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1763499840
 GameObject:
   m_ObjectHideFlags: 0
@@ -12281,7 +12269,6 @@ Transform:
   - {fileID: 1002290553}
   - {fileID: 317762322}
   - {fileID: 1482915732}
-  - {fileID: 1899345007}
   m_Father: {fileID: 1338573375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1856158395
@@ -12367,7 +12354,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogMismatch
         m_Mode: 1
@@ -12577,7 +12564,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogRoundEnd
         m_Mode: 1
@@ -12805,7 +12792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7afdb05625044922a61592238ba840e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConditionManager
-  currentCondition: 2
+  currentVisualCondition: 2
+  currentAudioCondition: 0
 --- !u!4 &1899345007
 Transform:
   m_ObjectHideFlags: 0
@@ -12814,12 +12802,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899345005}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.84481, y: -0.1500001, z: 3.9950902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1817002831}
+  m_Father: {fileID: 152056932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1907829455
 GameObject:
@@ -12940,7 +12928,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -13225,7 +13213,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -13960,7 +13948,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -14105,7 +14093,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761461126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventTester, Assembly-CSharp
         m_MethodName: LogCard
         m_Mode: 1
@@ -14284,13 +14272,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1267617273}
-  - {fileID: 1172030760}
   - {fileID: 152056932}
   - {fileID: 2081137559}
   - {fileID: 861679697}
-  - {fileID: 1751591083}
-  - {fileID: 651851411}
   - {fileID: 1974833082}
-  - {fileID: 1429199776}
   - {fileID: 960354602}
-  - {fileID: 1761461127}
