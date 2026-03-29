@@ -85,8 +85,15 @@ public class LSLEventStreamer : MonoBehaviour
         string extra2 = "NA"
     )
     {
+        string sessionId = "NO_SESSION";
+
+        if (ExperimentSessionInfo.Instance != null)
+        {
+            sessionId = ExperimentSessionInfo.Instance.SessionId;
+        }
+
         string marker =
-            $"event={eventType};round={roundIndex};condition={conditionId};object={objectId};extra1={extra1};extra2={extra2}";
+            $"session={sessionId};event={eventType};round={roundIndex};condition={conditionId};object={objectId};extra1={extra1};extra2={extra2}";
 
         SendMarker(marker);
     }

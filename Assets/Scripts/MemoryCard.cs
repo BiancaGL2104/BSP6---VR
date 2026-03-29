@@ -23,7 +23,7 @@ public class MemoryCard : MonoBehaviour
     // This is the method your debug buttons should call
     public void SelectCard()
     {
-        Debug.Log("CARD SELECTED: " + gameObject.name);
+        Debug.Log("CARD SELECTED: " + gameObject.transform.parent.name);
 
         if (gameManager != null)
         {
@@ -31,7 +31,7 @@ public class MemoryCard : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No gameManager assigned on " + gameObject.name);
+            Debug.LogWarning("No gameManager assigned on " + gameObject.transform.parent.name);
         }   
     }
 
