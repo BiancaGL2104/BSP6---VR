@@ -1987,14 +1987,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 286434485}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &286434484
 BoxCollider:
@@ -2688,14 +2688,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 341142459}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!23 &341142459
 MeshRenderer:
@@ -3235,14 +3235,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 445008854}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!114 &445008857
 MonoBehaviour:
@@ -3520,14 +3520,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 474529646}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &474529645
 BoxCollider:
@@ -3706,14 +3706,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 510729495}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &510729494
 BoxCollider:
@@ -3958,14 +3958,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 592135472}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &592135471
 BoxCollider:
@@ -4980,14 +4980,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 639113992}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &639113991
 BoxCollider:
@@ -5177,14 +5177,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 649977191}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &649977190
 BoxCollider:
@@ -6027,14 +6027,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 839832652}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &839832651
 BoxCollider:
@@ -7155,6 +7155,7 @@ MonoBehaviour:
   unpredictableSpeed: 4
   targetReachThreshold: 0.1
   randomMoveArea: {x: 2, y: 2, z: 2}
+  movementBounds: {fileID: 1329120471}
 --- !u!1 &986714195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7858,7 +7859,7 @@ Transform:
   m_GameObject: {fileID: 1116564139}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.105, z: 0}
+  m_LocalPosition: {x: 0, y: 0.105, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8574,14 +8575,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 1215887898}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &1215887897
 BoxCollider:
@@ -9257,6 +9258,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328418269}
   m_CullTransparentMesh: 1
+--- !u!1 &1329120469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329120470}
+  - component: {fileID: 1329120471}
+  m_Layer: 0
+  m_Name: VisualDistractorBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329120470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329120469}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalScale: {x: 7.9, y: 3.1, z: 7.9}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1338573375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1329120471
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329120469}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1336375596
 GameObject:
   m_ObjectHideFlags: 0
@@ -9318,6 +9372,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1329120470}
   - {fileID: 938701106}
   - {fileID: 603949499}
   - {fileID: 2094722186}
@@ -9794,14 +9849,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 1415740026}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &1415740025
 BoxCollider:
@@ -10461,14 +10516,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 1493656933}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &1493656932
 BoxCollider:
@@ -11410,14 +11465,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 1687888801}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &1687888800
 BoxCollider:
@@ -11662,14 +11717,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 1708387310}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &1708387309
 BoxCollider:
@@ -12268,14 +12323,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 1800784868}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &1800784867
 BoxCollider:
@@ -12912,8 +12967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7afdb05625044922a61592238ba840e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConditionManager
-  currentVisualCondition: 1
-  currentAudioCondition: 2
+  currentVisualCondition: 0
+  currentAudioCondition: 0
 --- !u!4 &1899345007
 Transform:
   m_ObjectHideFlags: 0
@@ -13163,14 +13218,14 @@ MonoBehaviour:
   cardRenderer: {fileID: 1943862218}
   backMaterial: {fileID: 2100000, guid: 55f59bcb005f5481098e370117cbbbf2, type: 2}
   frontMaterials:
-  - {fileID: 2100000, guid: 729c2b715e3294df7a2cae90b2fc65c2, type: 2}
-  - {fileID: 2100000, guid: 9b5fee3c6fb66496ca3affb1b1ba8a32, type: 2}
-  - {fileID: 2100000, guid: 49b2e737e3cb446f7b71907ebdebb309, type: 2}
-  - {fileID: 2100000, guid: e21f1248c73ec4bb98b3a092688c469f, type: 2}
-  - {fileID: 2100000, guid: 4506874afafee4db38870a78165c9faa, type: 2}
-  - {fileID: 2100000, guid: d3a99329cce024df899cfe3d14fb062a, type: 2}
-  - {fileID: 2100000, guid: 49fb5aeaca745446ab3331154cf92b08, type: 2}
-  - {fileID: 2100000, guid: f86a9d6b7af3d4431b7da64d3a552aeb, type: 2}
+  - {fileID: 2100000, guid: 069842af34c5b4814afa204c52908c93, type: 2}
+  - {fileID: 2100000, guid: ce273ca24efcf452380164bdaac51a2d, type: 2}
+  - {fileID: 2100000, guid: 985802a7747294ce6bf4d3e36896df50, type: 2}
+  - {fileID: 2100000, guid: cf277066d16674f04b137d5acb984d0e, type: 2}
+  - {fileID: 2100000, guid: 595c0af0afa88482fb9c4d9770ac8a17, type: 2}
+  - {fileID: 2100000, guid: 30848d36aba564c8bbb3c77519acb1a4, type: 2}
+  - {fileID: 2100000, guid: 06b4dc7892638479ba5f2a86d3ffb925, type: 2}
+  - {fileID: 2100000, guid: e9a85f09d4a434fada57de6bf60689d6, type: 2}
   gameManager: {fileID: 1172030759}
 --- !u!65 &1943862217
 BoxCollider:
@@ -14355,7 +14410,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b50e4a7454dde44cfb29059e6ad12441, type: 2}
+  - {fileID: 2100000, guid: 1238e11261ad443b28ca0adfad42b11e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

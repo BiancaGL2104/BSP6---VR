@@ -21,6 +21,9 @@ public class VisualDistractorManager : MonoBehaviour
     public float targetReachThreshold = 0.3f;
     public Vector3 randomMoveArea = new Vector3(3f, 1.5f, 3f);
 
+    [Header("Movement Bounds")]
+    public BoxCollider movementBounds;
+
     private enum VisualMovementMode
     {
         None,
@@ -160,15 +163,14 @@ public class VisualDistractorManager : MonoBehaviour
 
     private void PickNewRandomTarget()
     {
-        if (visualZones == null || visualZones.Count == 0) return;
+        if (movementBounds == null) return;
 
-        int anchorIndex = Random.Range(0, visualZones.Count);
-        Vector3 anchorPos = visualZones[anchorIndex].position;
+        Bounds bounds = movementBounds.bounds;
 
-        unpredictableTargetPosition = anchorPos + new Vector3(
-            Random.Range(-randomMoveArea.x, randomMoveArea.x),
-            Random.Range(-randomMoveArea.y, randomMoveArea.y),
-            Random.Range(-randomMoveArea.z, randomMoveArea.z)
+        unpredictableTargetPosition = new Vector3(
+            Random.Range(bounds.min.x, bounds.max.x),
+            Random.Range(bounds.min.y, bounds.max.y),
+            Random.Range(bounds.min.z, bounds.max.z)
         );
     }
 }
