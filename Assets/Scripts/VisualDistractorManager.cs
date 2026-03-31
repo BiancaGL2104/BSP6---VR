@@ -12,8 +12,62 @@ public class VisualDistractorManager : MonoBehaviour
     [Header("Condition Reference")]
     public ConditionManager conditionManager;
 
+    [Header("Predictable Movement")]
+    public float predictableAmplitude = 3f;
+    public float predictableSpeed = 2f;
+
+    [Header("Unpredictable Movement")]
+    public float unpredictableSpeed = 2f;
+    public float targetReachThreshold = 0.3f;
+    public Vector3 randomMoveArea = new Vector3(3f, 1.5f, 3f);
+
+    private enum VisualMovementMode
+    {
+        None,
+        Predictable,
+        Unpredictable
+    }
+
+    private VisualMovementMode currentMode = VisualMovementMode.None;
+
+    private Vector3 predictableBasePosition;
+    private Vector3 unpredictableTargetPosition;
+
+    private void Update()
+    {
+        if (distractorObject == null || !distractorObject.activeSelf)
+            return;
+
+        if (currentMode == VisualMovementMode.Predictable)
+        {
+            Vector3 pos = predictableBasePosition;
+            pos.y += Mathf.Sin(Time.time * predictableSpeed) * predictableAmplitude;
+            distractorObject.transform.position = pos;
+        }
+        else if (currentMode == VisualMovementMode.Unpredictable)
+        {
+            Vector3 direction = (unpredictableTargetPosition - distractorObject.transform.position).normalized;
+            Vector3 randomOffset = new Vector3(
+                Random.Range(-0.3f, 0.3f),
+                Random.Range(-0.2f, 0.2f),
+                Random.Range(-0.3f, 0.3f)
+            );
+
+            Vector3 movement = (direction + randomOffset) * unpredictableSpeed * Time.deltaTime;
+
+            distractorObject.transform.position += movement;
+
+            if (Vector3.Distance(distractorObject.transform.position, unpredictableTargetPosition) < targetReachThreshold)
+            {
+                PickNewRandomTarget();
+            }
+        }
+    }
+
     public void HideDistractor()
     {
+        currentMode = VisualMovementMode.None;
+
         if (distractorObject != null)
         {
             distractorObject.SetActive(false);
@@ -40,6 +94,16 @@ public class VisualDistractorManager : MonoBehaviour
 
         string zoneName = visualZones[zoneIndex].name;
         Debug.Log("Visual distractor shown at zone: " + zoneName);
+
+        if (conditionManager != null && conditionManager.IsVisualPredictable())
+        {
+            predictableBasePosition = visualZones[zoneIndex].position;
+            currentMode = VisualMovementMode.Predictable;
+        }
+        else
+        {
+            currentMode = VisualMovementMode.None;
+        }
 
         if (ExperimentEventManager.Instance != null)
         {
@@ -74,26 +138,37 @@ public class VisualDistractorManager : MonoBehaviour
         if (visualZones == null || visualZones.Count == 0) return;
 
         int randomIndex = Random.Range(0, visualZones.Count);
-        ShowDistractorAtZone(randomIndex);
 
-        Debug.Log("Random visual distractor zone selected: " + randomIndex);
+        distractorObject.transform.position = visualZones[randomIndex].position;
+        distractorObject.transform.rotation = visualZones[randomIndex].rotation;
+        distractorObject.SetActive(true);
+
+        currentMode = VisualMovementMode.Unpredictable;
+        PickNewRandomTarget();
+
+        string zoneName = visualZones[randomIndex].name;
+        Debug.Log("Random visual distractor started from zone: " + zoneName);
+
+        if (ExperimentEventManager.Instance != null)
+        {
+            ExperimentEventManager.Instance.LogDistractorOn(
+                zoneName,
+                "VISUAL_UNPREDICTABLE"
+            );
+        }
     }
 
-    private void Update()
+    private void PickNewRandomTarget()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ShowDistractorAtZone(0);
-        }
+        if (visualZones == null || visualZones.Count == 0) return;
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ShowDistractorAtZone(1);
-        }
+        int anchorIndex = Random.Range(0, visualZones.Count);
+        Vector3 anchorPos = visualZones[anchorIndex].position;
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            HideDistractor();
-        }
+        unpredictableTargetPosition = anchorPos + new Vector3(
+            Random.Range(-randomMoveArea.x, randomMoveArea.x),
+            Random.Range(-randomMoveArea.y, randomMoveArea.y),
+            Random.Range(-randomMoveArea.z, randomMoveArea.z)
+        );
     }
 }
