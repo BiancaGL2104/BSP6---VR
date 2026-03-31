@@ -173,7 +173,7 @@ public class MemoryGameManager : MonoBehaviour
         {
             string selectionOrder = (firstSelected == null) ? "FIRST" : "SECOND";
             ExperimentEventManager.Instance.LogCardFlip(
-                card.name,
+                card.transform.parent.name,
                 "pair_" + card.cardId,
                 selectionOrder
             );
