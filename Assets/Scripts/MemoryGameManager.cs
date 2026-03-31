@@ -32,25 +32,38 @@ public class MemoryGameManager : MonoBehaviour
     public float roundStartTime;
     public bool roundActive = false;
 
+    [Header("Unpredictable Distractor Timing")]
+    public float unpredictableOnMin = 10f;
+    public float unpredictableOnMax = 15f;
+    public float unpredictableOffMin = 1f;
+    public float unpredictableOffMax = 5f;
+
+    [Header("Unpredictable Audio Timing")]
+    public float unpredictableAudioOnMin = 10f;
+    public float unpredictableAudioOnMax = 15f;
+    public float unpredictableAudioOffMin = 1f;
+    public float unpredictableAudioOffMax = 5f;
+
     [Header("UI")]
     public TMP_Text statusText;
     public TMP_Text conditionText;
 
     [Header("Manager References")]
     public VisualDistractorManager visualDistractorManager;
+    public AudioDistractorManager audioDistractorManager;
 
     private void Start()
     {
         SetStatus("Waiting for round start");
-
-        if (visualDistractorManager != null)
-        {
-            visualDistractorManager.HideDistractor();
-        }
-
+        
         if (conditionText != null)
         {
             conditionText.text = "Condition: Waiting";
+        }
+
+        if (audioDistractorManager != null)
+        {
+            audioDistractorManager.StopAudioDistractor();
         }
     }
 
@@ -94,13 +107,13 @@ public class MemoryGameManager : MonoBehaviour
 
             if (conditionManager.IsVisualPredictable())
             {
-                Debug.Log("Showing predictable visual distractor at zone 0");
+                Debug.Log("Starting stable predictable visual distractor at zone 0");
                 visualDistractorManager.ShowDistractorAtZone(0);
             }
             else if (conditionManager.IsVisualUnpredictable())
             {
-                Debug.Log("Showing unpredictable visual distractor at random zone");
-                visualDistractorManager.ShowDistractorAtRandomZone();
+                Debug.Log("Starting unpredictable visual distractor loop");
+                StartCoroutine(HandleUnpredictableVisualLoop());
             }
             else
             {
@@ -111,6 +124,30 @@ public class MemoryGameManager : MonoBehaviour
         else
         {
             Debug.Log("Missing visualDistractorManager or conditionManager reference");
+        }
+
+
+        if (audioDistractorManager != null && conditionManager != null)
+        {
+            if (conditionManager.IsAudioPredictable())
+            {
+                Debug.Log("Starting stable predictable audio distractor");
+                audioDistractorManager.PlayPredictableAtZone(0);
+            }
+            else if (conditionManager.IsAudioUnpredictable())
+            {
+                Debug.Log("Starting unpredictable audio distractor loop");
+                StartCoroutine(HandleUnpredictableAudioLoop());
+            }
+            else
+            {
+                Debug.Log("No audio distractor for this condition");
+                audioDistractorManager.StopAudioDistractor();
+            }
+        }
+        else
+        {
+            Debug.Log("Missing audioDistractorManager or conditionManager reference");
         }
     }
 
@@ -271,8 +308,14 @@ public class MemoryGameManager : MonoBehaviour
             visualDistractorManager.HideDistractor();
         }
 
+        if (audioDistractorManager != null)
+        {
+            audioDistractorManager.StopAudioDistractor();
+        }
+
         conditionId = "NONE";
         UpdateConditionText();
+
     }
 
     private void UpdateConditionText()
@@ -288,4 +331,48 @@ public class MemoryGameManager : MonoBehaviour
         Debug.Log("DEBUG ROUND END BUTTON PRESSED");
         CompleteRound();
     }
+
+    private IEnumerator HandleUnpredictableVisualLoop()
+    {
+        if (visualDistractorManager == null || conditionManager == null)
+            yield break;
+
+        while (roundActive && conditionManager.IsVisualUnpredictable())
+        {
+            visualDistractorManager.ShowDistractorAtRandomZone();
+
+            float onTime = Random.Range(unpredictableOnMin, unpredictableOnMax);
+            yield return new WaitForSeconds(onTime);
+
+            if (!roundActive) yield break;
+
+            visualDistractorManager.HideDistractor();
+
+            float offTime = Random.Range(unpredictableOffMin, unpredictableOffMax);
+            yield return new WaitForSeconds(offTime);
+        }
+    }
+
+    private IEnumerator HandleUnpredictableAudioLoop()
+    {
+        if (audioDistractorManager == null || conditionManager == null)
+            yield break;
+
+        while (roundActive && conditionManager.IsAudioUnpredictable())
+        {
+            audioDistractorManager.PlayUnpredictableOrbitAudio();
+
+            float onTime = Random.Range(unpredictableAudioOnMin, unpredictableAudioOnMax);
+            yield return new WaitForSeconds(onTime);
+
+            if (!roundActive) yield break;
+
+            audioDistractorManager.StopAudioDistractor();
+
+            float offTime = Random.Range(unpredictableAudioOffMin, unpredictableAudioOffMax);
+            yield return new WaitForSeconds(offTime);
+        }
+    }
+
+
 }
