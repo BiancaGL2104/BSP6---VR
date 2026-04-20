@@ -178,4 +178,24 @@ public class ExperimentEventManager : MonoBehaviour
             questionnaireId
         );
     }
+
+    public void LogQuestionnaireAnswer(
+        int roundIndex,
+        string conditionId,
+        int questionNumber,
+        string questionText,
+        int answerIndex,
+        string answerLabel
+    )
+    {
+        LogToAllOutputs(
+            "QUESTIONNAIRE_ANSWER",
+            roundIndex,
+            conditionId,
+            "Q" + questionNumber,
+            questionText,
+            answerIndex + "|" + answerLabel
+        );
+    }
+
 }

@@ -20,6 +20,14 @@ public class ConditionManager : MonoBehaviour
     public VisualCondition currentVisualCondition = VisualCondition.Off;
     public AudioCondition currentAudioCondition = AudioCondition.Off;
 
+    public void SetCondition(VisualCondition visual, AudioCondition audio)
+    {
+        currentVisualCondition = visual;
+        currentAudioCondition = audio;
+
+        Debug.Log("Condition set to: " + GetConditionId());
+    }
+
     public bool UseVisualDistractor()
     {
         return currentVisualCondition != VisualCondition.Off;
@@ -55,20 +63,9 @@ public class ConditionManager : MonoBehaviour
         return GetCombinedConditionId(currentVisualCondition, currentAudioCondition);
     }
 
-    public string GetVisualConditionLabel()
-    {
-        return "Visual" + currentVisualCondition.ToString();
-    }
-
-    public string GetAudioConditionLabel()
-    {
-        return "Audio" + currentAudioCondition.ToString();
-    }
-
     public static string GetCombinedConditionId(VisualCondition visual, AudioCondition audio)
     {
         int conditionNumber = GetConditionNumber(visual, audio);
-
         return $"C{conditionNumber}_{GetVisualLabel(visual)}_{GetAudioLabel(audio)}";
     }
 
@@ -93,14 +90,10 @@ public class ConditionManager : MonoBehaviour
     {
         switch (visual)
         {
-            case VisualCondition.Off:
-                return "VisualOff";
-            case VisualCondition.Predictable:
-                return "VisualPredictable";
-            case VisualCondition.Unpredictable:
-                return "VisualUnpredictable";
-            default:
-                return "VisualUnknown";
+            case VisualCondition.Off: return "VisualOff";
+            case VisualCondition.Predictable: return "VisualPredictable";
+            case VisualCondition.Unpredictable: return "VisualUnpredictable";
+            default: return "VisualUnknown";
         }
     }
 
@@ -108,14 +101,10 @@ public class ConditionManager : MonoBehaviour
     {
         switch (audio)
         {
-            case AudioCondition.Off:
-                return "AudioOff";
-            case AudioCondition.Predictable:
-                return "AudioPredictable";
-            case AudioCondition.Unpredictable:
-                return "AudioUnpredictable";
-            default:
-                return "AudioUnknown";
+            case AudioCondition.Off: return "AudioOff";
+            case AudioCondition.Predictable: return "AudioPredictable";
+            case AudioCondition.Unpredictable: return "AudioUnpredictable";
+            default: return "AudioUnknown";
         }
     }
 }

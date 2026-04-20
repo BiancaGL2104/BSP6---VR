@@ -15,6 +15,9 @@ public class MemoryGameManager : MonoBehaviour
     [Header("Condition Reference")]
     public ConditionManager conditionManager;
 
+    [Header("Session Reference")]
+    public SessionManager sessionManager;
+
     [Header("Selection")]
     public MemoryCard firstSelected;
     public MemoryCard secondSelected;
@@ -32,18 +35,6 @@ public class MemoryGameManager : MonoBehaviour
     public float roundStartTime;
     public bool roundActive = false;
 
-    [Header("Unpredictable Distractor Timing")]
-    public float unpredictableOnMin = 10f;
-    public float unpredictableOnMax = 15f;
-    public float unpredictableOffMin = 1f;
-    public float unpredictableOffMax = 5f;
-
-    [Header("Unpredictable Audio Timing")]
-    public float unpredictableAudioOnMin = 10f;
-    public float unpredictableAudioOnMax = 15f;
-    public float unpredictableAudioOffMin = 1f;
-    public float unpredictableAudioOffMax = 5f;
-
     [Header("UI")]
     public TMP_Text statusText;
     public TMP_Text conditionText;
@@ -55,7 +46,7 @@ public class MemoryGameManager : MonoBehaviour
     private void Start()
     {
         SetStatus("Waiting for round start");
-        
+
         if (conditionText != null)
         {
             conditionText.text = "Condition: Waiting";
@@ -81,7 +72,7 @@ public class MemoryGameManager : MonoBehaviour
 
         roundStartTime = Time.realtimeSinceStartup;
         roundActive = true;
-        SetStatus("Round active");
+        SetStatus("Condition active");
 
         if (conditionManager != null)
         {
@@ -99,55 +90,6 @@ public class MemoryGameManager : MonoBehaviour
         if (ExperimentEventManager.Instance != null)
         {
             ExperimentEventManager.Instance.LogRoundStart(roundIndex, conditionId);
-        }
-
-        if (visualDistractorManager != null && conditionManager != null)
-        {
-            Debug.Log("Condition is: " + conditionManager.GetConditionId());
-
-            if (conditionManager.IsVisualPredictable())
-            {
-                Debug.Log("Starting stable predictable visual distractor at zone 0");
-                visualDistractorManager.ShowDistractorAtZone(0);
-            }
-            else if (conditionManager.IsVisualUnpredictable())
-            {
-                Debug.Log("Starting unpredictable visual distractor loop");
-                StartCoroutine(HandleUnpredictableVisualLoop());
-            }
-            else
-            {
-                Debug.Log("No visual distractor for this condition");
-                visualDistractorManager.HideDistractor();
-            }
-        }
-        else
-        {
-            Debug.Log("Missing visualDistractorManager or conditionManager reference");
-        }
-
-
-        if (audioDistractorManager != null && conditionManager != null)
-        {
-            if (conditionManager.IsAudioPredictable())
-            {
-                Debug.Log("Starting stable predictable audio distractor");
-                audioDistractorManager.PlayPredictableAtZone(0);
-            }
-            else if (conditionManager.IsAudioUnpredictable())
-            {
-                Debug.Log("Starting unpredictable audio distractor loop");
-                StartCoroutine(HandleUnpredictableAudioLoop());
-            }
-            else
-            {
-                Debug.Log("No audio distractor for this condition");
-                audioDistractorManager.StopAudioDistractor();
-            }
-        }
-        else
-        {
-            Debug.Log("Missing audioDistractorManager or conditionManager reference");
         }
     }
 
@@ -185,8 +127,20 @@ public class MemoryGameManager : MonoBehaviour
             ids[randomIndex] = temp;
         }
 
+        if (allCards.Count != totalPairs * 2)
+        {
+            Debug.LogWarning("Card count does not match expected pair count. allCards: "
+                + allCards.Count + ", expected: " + (totalPairs * 2));
+        }
+
         for (int i = 0; i < allCards.Count; i++)
         {
+            if (allCards[i] == null)
+            {
+                Debug.LogError("allCards[" + i + "] is null");
+                continue;
+            }
+
             allCards[i].cardId = ids[i];
             allCards[i].ResetCard();
 
@@ -274,14 +228,16 @@ public class MemoryGameManager : MonoBehaviour
             }
         }
 
-        if (matchedPairs >= totalPairs)
-        {
-            CompleteRound();
-        }
+        bool roundFinished = matchedPairs >= totalPairs;
 
         firstSelected = null;
         secondSelected = null;
         isBusy = false;
+
+        if (roundFinished)
+        {
+            CompleteRound();
+        }
     }
 
     private void CompleteRound()
@@ -303,19 +259,26 @@ public class MemoryGameManager : MonoBehaviour
             );
         }
 
-        if (visualDistractorManager != null)
+        if (sessionManager != null)
         {
-            visualDistractorManager.HideDistractor();
+            sessionManager.OnConditionCompleted();
         }
-
-        if (audioDistractorManager != null)
+        else
         {
-            audioDistractorManager.StopAudioDistractor();
+            conditionId = "NONE";
+            UpdateConditionText();
+            SetStatus("Waiting for round start");
+
+            if (visualDistractorManager != null)
+            {
+                visualDistractorManager.HideDistractor();
+            }
+
+            if (audioDistractorManager != null)
+            {
+                audioDistractorManager.StopAudioDistractor();
+            }
         }
-
-        conditionId = "NONE";
-        UpdateConditionText();
-
     }
 
     private void UpdateConditionText()
@@ -331,48 +294,4 @@ public class MemoryGameManager : MonoBehaviour
         Debug.Log("DEBUG ROUND END BUTTON PRESSED");
         CompleteRound();
     }
-
-    private IEnumerator HandleUnpredictableVisualLoop()
-    {
-        if (visualDistractorManager == null || conditionManager == null)
-            yield break;
-
-        while (roundActive && conditionManager.IsVisualUnpredictable())
-        {
-            visualDistractorManager.ShowDistractorAtRandomZone();
-
-            float onTime = Random.Range(unpredictableOnMin, unpredictableOnMax);
-            yield return new WaitForSeconds(onTime);
-
-            if (!roundActive) yield break;
-
-            visualDistractorManager.HideDistractor();
-
-            float offTime = Random.Range(unpredictableOffMin, unpredictableOffMax);
-            yield return new WaitForSeconds(offTime);
-        }
-    }
-
-    private IEnumerator HandleUnpredictableAudioLoop()
-    {
-        if (audioDistractorManager == null || conditionManager == null)
-            yield break;
-
-        while (roundActive && conditionManager.IsAudioUnpredictable())
-        {
-            audioDistractorManager.PlayUnpredictableOrbitAudio();
-
-            float onTime = Random.Range(unpredictableAudioOnMin, unpredictableAudioOnMax);
-            yield return new WaitForSeconds(onTime);
-
-            if (!roundActive) yield break;
-
-            audioDistractorManager.StopAudioDistractor();
-
-            float offTime = Random.Range(unpredictableAudioOffMin, unpredictableAudioOffMax);
-            yield return new WaitForSeconds(offTime);
-        }
-    }
-
-
 }
