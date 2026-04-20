@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class MemoryCard : MonoBehaviour
 {
@@ -15,15 +17,57 @@ public class MemoryCard : MonoBehaviour
     [Header("References")]
     public MemoryGameManager gameManager;
 
+    private XRSimpleInteractable interactable;
+
+    private void Awake()
+    {
+        interactable = GetComponent<XRSimpleInteractable>();
+
+        if (interactable != null)
+        {
+            interactable.hoverEntered.AddListener(OnHoverEntered);
+            interactable.selectEntered.AddListener(OnSelectEntered);
+        }
+        else
+        {
+            Debug.LogWarning("No XRSimpleInteractable found on " + gameObject.name);
+        }
+    }
+
     private void Start()
     {
         ShowBack();
     }
 
-    // This is the method your debug buttons should call
+    private void OnDestroy()
+    {
+        if (interactable != null)
+        {
+            interactable.hoverEntered.RemoveListener(OnHoverEntered);
+            interactable.selectEntered.RemoveListener(OnSelectEntered);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("MOUSE CLICKED CARD: " + gameObject.name);
+        SelectCard();
+    }
+
+    private void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        Debug.Log("XR HOVER ENTERED: " + gameObject.name);
+    }
+
+    private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        Debug.Log("XR SELECT ENTERED: " + gameObject.name);
+        SelectCard();
+    }
+
     public void SelectCard()
     {
-        Debug.Log("CARD SELECTED: " + gameObject.transform.parent.name);
+        Debug.Log("CARD SELECTED: " + gameObject.name);
 
         if (gameManager != null)
         {
@@ -31,8 +75,8 @@ public class MemoryCard : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No gameManager assigned on " + gameObject.transform.parent.name);
-        }   
+            Debug.LogWarning("No gameManager assigned on " + gameObject.name);
+        }
     }
 
     public void Flip()
