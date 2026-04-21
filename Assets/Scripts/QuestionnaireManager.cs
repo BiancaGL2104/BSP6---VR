@@ -9,7 +9,8 @@ public class QuestionnaireManager : MonoBehaviour
     public class QuestionData
     {
         public string questionText;
-        public List<string> answerOptions = new List<string>();
+        public string minLabel = "0";
+        public string maxLabel = "100";
     }
 
     [Header("Question Setup")]
@@ -19,18 +20,16 @@ public class QuestionnaireManager : MonoBehaviour
     public GameObject questionnairePanel;
     public TMP_Text questionCounterText;
     public TMP_Text questionText;
-    public Button[] answerButtons;
-    public TMP_Text[] answerButtonTexts;
+    public Slider responseSlider;
+    public TMP_Text sliderValueText;
+    public TMP_Text sliderMinText;
+    public TMP_Text sliderMaxText;
     public Button previousButton;
     public Button nextButton;
     public Button submitButton;
 
-    [Header("Selection Colors")]
-    public Color normalColor = Color.white;
-    public Color selectedColor = Color.blue;
-
     private int currentQuestionIndex = 0;
-    private List<int> selectedAnswers = new List<int>();
+    private List<int> sliderAnswers = new List<int>();
     private SessionManager sessionManager;
 
     private int currentRoundIndex = -1;
@@ -52,10 +51,10 @@ public class QuestionnaireManager : MonoBehaviour
         currentRoundIndex = roundIndex;
         currentConditionId = conditionId;
 
-        selectedAnswers.Clear();
+        sliderAnswers.Clear();
         for (int i = 0; i < questions.Count; i++)
         {
-            selectedAnswers.Add(-1);
+            sliderAnswers.Add(50);
         }
 
         currentQuestionIndex = 0;
@@ -72,7 +71,6 @@ public class QuestionnaireManager : MonoBehaviour
 
         ShowCurrentQuestion();
     }
-    
 
     public void HideQuestionnaire()
     {
@@ -82,17 +80,26 @@ public class QuestionnaireManager : MonoBehaviour
         }
     }
 
-    public void SelectAnswer(int answerIndex)
+    public void OnSliderValueChanged()
     {
-        if (currentQuestionIndex < 0 || currentQuestionIndex >= selectedAnswers.Count)
-            return;
+        if (responseSlider != null && sliderValueText != null)
+        {
+            sliderValueText.text = ((int)responseSlider.value).ToString();
+        }
+    }
 
-        selectedAnswers[currentQuestionIndex] = answerIndex;
-        UpdateAnswerButtonVisuals();
+    private void SaveCurrentSliderValue()
+    {
+        if (responseSlider == null) return;
+        if (currentQuestionIndex < 0 || currentQuestionIndex >= sliderAnswers.Count) return;
+
+        sliderAnswers[currentQuestionIndex] = (int)responseSlider.value;
     }
 
     public void NextQuestion()
     {
+        SaveCurrentSliderValue();
+
         if (currentQuestionIndex < questions.Count - 1)
         {
             currentQuestionIndex++;
@@ -102,6 +109,8 @@ public class QuestionnaireManager : MonoBehaviour
 
     public void PreviousQuestion()
     {
+        SaveCurrentSliderValue();
+
         if (currentQuestionIndex > 0)
         {
             currentQuestionIndex--;
@@ -111,24 +120,18 @@ public class QuestionnaireManager : MonoBehaviour
 
     public void SubmitQuestionnaire()
     {
+        SaveCurrentSliderValue();
+
         Debug.Log("QUESTIONNAIRE SUBMITTED");
 
         for (int i = 0; i < questions.Count; i++)
         {
-            int selectedIndex = selectedAnswers[i];
-
-            string answerLabel = "NO_ANSWER";
-
-            if (selectedIndex >= 0 && selectedIndex < questions[i].answerOptions.Count)
-            {
-                answerLabel = questions[i].answerOptions[selectedIndex];
-            }
+            int value = sliderAnswers[i];
 
             Debug.Log(
                 "Q" + (i + 1) +
                 " | Condition: " + currentConditionId +
-                " | Answer Index: " + selectedIndex +
-                " | Answer Label: " + answerLabel
+                " | Slider Value: " + value
             );
 
             if (ExperimentEventManager.Instance != null)
@@ -138,11 +141,11 @@ public class QuestionnaireManager : MonoBehaviour
                     currentConditionId,
                     i + 1,
                     questions[i].questionText,
-                    selectedIndex,
-                    answerLabel
+                    value
                 );
             }
         }
+
         if (ExperimentEventManager.Instance != null)
         {
             ExperimentEventManager.Instance.LogQuestionnaireEnd("POST_CONDITION_QUESTIONNAIRE");
@@ -173,16 +176,24 @@ public class QuestionnaireManager : MonoBehaviour
             questionText.text = currentQuestion.questionText;
         }
 
-        for (int i = 0; i < answerButtons.Length; i++)
+        if (sliderMinText != null)
         {
-            bool hasOption = i < currentQuestion.answerOptions.Count;
+            sliderMinText.text = currentQuestion.minLabel;
+        }
 
-            answerButtons[i].gameObject.SetActive(hasOption);
+        if (sliderMaxText != null)
+        {
+            sliderMaxText.text = currentQuestion.maxLabel;
+        }
 
-            if (hasOption && i < answerButtonTexts.Length)
-            {
-                answerButtonTexts[i].text = currentQuestion.answerOptions[i];
-            }
+        if (responseSlider != null)
+        {
+            responseSlider.value = sliderAnswers[currentQuestionIndex];
+        }
+
+        if (sliderValueText != null)
+        {
+            sliderValueText.text = sliderAnswers[currentQuestionIndex].ToString();
         }
 
         if (previousButton != null)
@@ -199,24 +210,6 @@ public class QuestionnaireManager : MonoBehaviour
         {
             submitButton.gameObject.SetActive(currentQuestionIndex == questions.Count - 1);
         }
-
-        UpdateAnswerButtonVisuals();
-    }
-
-    private void UpdateAnswerButtonVisuals()
-    {
-        int selectedIndex = selectedAnswers[currentQuestionIndex];
-
-        for (int i = 0; i < answerButtons.Length; i++)
-        {
-            if (answerButtons[i] == null) continue;
-
-            Image buttonImage = answerButtons[i].GetComponent<Image>();
-            if (buttonImage != null)
-            {
-                buttonImage.color = (i == selectedIndex) ? selectedColor : normalColor;
-            }
-        }
     }
 
     private void InitializeDefaultQuestions()
@@ -224,42 +217,46 @@ public class QuestionnaireManager : MonoBehaviour
         if (questions.Count > 0)
             return;
 
-        List<string> defaultOptions = new List<string>
-        {
-            "Not at all",
-            "A little",
-            "Moderately",
-            "A lot"
-        };
-
         questions.Add(new QuestionData
         {
-            questionText = "How distracting was this condition?",
-            answerOptions = new List<string>(defaultOptions)
+            questionText = "How much mental and perceptual activity was required (e.g. thinking, deciding, calculating, remembering, looking, searching, etc)? Was the task easy or demanding, simple or complex, exacting or forgiving?",
+            minLabel = "Very low",
+            maxLabel = "Very high"
         });
 
         questions.Add(new QuestionData
         {
-            questionText = "How difficult did this condition feel?",
-            answerOptions = new List<string>(defaultOptions)
+            questionText = "How much physical activity was required (e.g. pushing, pulling, turning, controlling, activating, etc)? Was the task easy or demanding, slow or brisk, slack or strenuous, restful or laborious?",
+            minLabel = "Very low",
+            maxLabel = "Very high"
         });
 
         questions.Add(new QuestionData
         {
-            questionText = "How mentally demanding was this condition?",
-            answerOptions = new List<string>(defaultOptions)
+            questionText = "How much time pressure did you feel due to the rate of pace at which the tasks or task elements occurred? Was the pace slow and leisurely or rapid and frantic?",
+            minLabel = "Very low",
+            maxLabel = "Very high"
         });
 
         questions.Add(new QuestionData
         {
-            questionText = "How noticeable were the distractors?",
-            answerOptions = new List<string>(defaultOptions)
+            questionText = "How successful do you think you were in accomplishing the goals of the task set by the experimenter (or yourself)? How satisfied were you with your performance in accomplishing these goals?",
+            minLabel = "Very low",
+            maxLabel = "Very high"
         });
 
         questions.Add(new QuestionData
         {
-            questionText = "How confident are you in your performance?",
-            answerOptions = new List<string>(defaultOptions)
+            questionText = "How hard did you have to work (mentally and physically) to accomplish your level of performance?",
+            minLabel = "Very low",
+            maxLabel = "Very high"
+        });
+
+        questions.Add(new QuestionData
+        {
+            questionText = "How insecure, discouraged, irritated, stressed and annoyed versus secure, gratified, content, relaxed and complacent did you feel during the task?",
+            minLabel = "Very low",
+            maxLabel = "Very high"
         });
     }
 }

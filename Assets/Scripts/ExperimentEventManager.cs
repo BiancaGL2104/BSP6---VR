@@ -184,8 +184,7 @@ public class ExperimentEventManager : MonoBehaviour
         string conditionId,
         int questionNumber,
         string questionText,
-        int answerIndex,
-        string answerLabel
+        int sliderValue
     )
     {
         LogToAllOutputs(
@@ -194,7 +193,7 @@ public class ExperimentEventManager : MonoBehaviour
             conditionId,
             "Q" + questionNumber,
             questionText,
-            answerIndex + "|" + answerLabel
+            sliderValue.ToString()
         );
     }
 
