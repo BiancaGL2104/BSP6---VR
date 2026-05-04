@@ -38,9 +38,13 @@ public class SessionManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("SessionManager Start on: " + gameObject.name 
+                + " conditions count: " + sessionConditions.Count);
+
         if (sessionConditions.Count == 0)
         {
             BuildDefaultNineConditions();
+            Debug.Log("After build, conditions count: " + sessionConditions.Count);
         }
 
         SetSessionStatus("Waiting for session start");
@@ -48,6 +52,21 @@ public class SessionManager : MonoBehaviour
 
     public void StartSession()
     {
+        if (ExperimentEventManager.Instance != null)
+        {
+            ExperimentEventManager.Instance.LogExperimentStart();
+        }
+        else
+        {
+            Debug.LogWarning("ExperimentEventManager.Instance is NULL at session start");
+        }
+
+        if (sessionConditions.Count == 0)
+        {
+            Debug.Log("Session conditions empty, building default nine conditions now.");
+            BuildDefaultNineConditions();
+        }
+
         if (sessionConditions.Count == 0)
         {
             Debug.LogWarning("No session conditions defined.");
@@ -90,6 +109,7 @@ public class SessionManager : MonoBehaviour
             memoryGameManager.roundIndex = currentConditionIndex + 1;
             memoryGameManager.StartRound();
         }
+        
     }
 
     public void OnConditionCompleted()
@@ -212,6 +232,11 @@ public class SessionManager : MonoBehaviour
         sessionActive = false;
         StopAllDistractorsAndLoops();
         SetSessionStatus("Session complete");
+
+        if (ExperimentEventManager.Instance != null)
+        {
+            ExperimentEventManager.Instance.LogExperimentEnd();
+        }
 
         Debug.Log("=== SESSION COMPLETE ===");
     }

@@ -197,4 +197,39 @@ public class ExperimentEventManager : MonoBehaviour
         );
     }
 
+
+    public void LogToAllOutputsForRecheck(
+        int roundIndex,
+        string conditionId,
+        string cardId,
+        string pairId,
+        string recheckCount
+    )
+    {
+        LogToAllOutputs(
+            "RECHECK",
+            roundIndex,
+            conditionId,
+            cardId,
+            pairId,
+            recheckCount
+        );
+    }
+
+    public void LogThinkingTime(
+        int roundIndex,
+        string conditionId,
+        string cardId,
+        string thinkingTime
+    )
+    {
+        LogToAllOutputs(
+            "THINKING_TIME",
+            roundIndex,
+            conditionId,
+            cardId,
+            thinkingTime
+        );
+    }
+
 }
