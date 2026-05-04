@@ -21,6 +21,7 @@ public class MemoryCard : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("MemoryCard awake on: " + gameObject.name);
         interactable = GetComponent<XRSimpleInteractable>();
 
         if (interactable != null)

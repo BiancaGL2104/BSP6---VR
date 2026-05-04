@@ -43,6 +43,12 @@ public class MemoryGameManager : MonoBehaviour
     public VisualDistractorManager visualDistractorManager;
     public AudioDistractorManager audioDistractorManager;
 
+    [Header("Memory Behavior Metrics")]
+    public int recheckCount = 0;
+    private Dictionary<string, int> seenCardCounts = new Dictionary<string, int>();
+
+    private float lastFlipTime = -1f;    
+
     private void Start()
     {
         SetStatus("Waiting for round start");
@@ -63,6 +69,8 @@ public class MemoryGameManager : MonoBehaviour
         matchedPairs = 0;
         totalFlips = 0;
         mismatchCount = 0;
+        recheckCount = 0;
+        seenCardCounts.Clear();
 
         firstSelected = null;
         secondSelected = null;
@@ -158,13 +166,58 @@ public class MemoryGameManager : MonoBehaviour
         card.Flip();
         totalFlips++;
 
+        float currentTime = Time.realtimeSinceStartup;
+
+        if (lastFlipTime > 0f)
+        {
+            float thinkingTime = currentTime - lastFlipTime;
+
+            Debug.Log("THINKING TIME: " + thinkingTime.ToString("F2") + " seconds");
+
+            if (ExperimentEventManager.Instance != null)
+            {
+                ExperimentEventManager.Instance.LogThinkingTime(
+                    roundIndex,
+                    conditionId,
+                    card.gameObject.name,
+                    thinkingTime.ToString("F2")
+                );
+            }
+        }
+
+        lastFlipTime = currentTime;
+
+        string cardName = card.gameObject.name;
+
+        if (seenCardCounts.ContainsKey(cardName))
+        {
+            recheckCount++;
+
+            Debug.Log("RECHECK detected: " + cardName + " | Total rechecks: " + recheckCount);
+
+            if (ExperimentEventManager.Instance != null)
+            {
+                ExperimentEventManager.Instance.LogToAllOutputsForRecheck(
+                    roundIndex,
+                    conditionId,
+                    cardName,
+                    "pair_" + card.cardId,
+                    recheckCount.ToString()
+                );
+            }
+        }
+        else
+        {
+            seenCardCounts.Add(cardName, 1);
+        }
+
         Debug.Log("Total Flips: " + totalFlips);
 
         if (ExperimentEventManager.Instance != null)
         {
             string selectionOrder = (firstSelected == null) ? "FIRST" : "SECOND";
             ExperimentEventManager.Instance.LogCardFlip(
-                card.transform.parent.name,
+                card.gameObject.name,
                 "pair_" + card.cardId,
                 selectionOrder
             );
@@ -204,8 +257,8 @@ public class MemoryGameManager : MonoBehaviour
             if (ExperimentEventManager.Instance != null)
             {
                 ExperimentEventManager.Instance.LogMatch(
-                    firstSelected.name,
-                    secondSelected.name
+                    firstSelected.gameObject.name,
+                    secondSelected.gameObject.name
                 );
             }
         }
@@ -222,8 +275,8 @@ public class MemoryGameManager : MonoBehaviour
             if (ExperimentEventManager.Instance != null)
             {
                 ExperimentEventManager.Instance.LogMismatch(
-                    firstSelected.name,
-                    secondSelected.name
+                    firstSelected.gameObject.name,
+                    secondSelected.gameObject.name
                 );
             }
         }
@@ -255,7 +308,7 @@ public class MemoryGameManager : MonoBehaviour
         {
             ExperimentEventManager.Instance.LogRoundEnd(
                 roundTime.ToString("F2"),
-                mismatchCount.ToString()
+                "mismatches=" + mismatchCount + ";rechecks=" + recheckCount
             );
         }
 

@@ -13,6 +13,7 @@ public class EventLogger : MonoBehaviour
 
     private void InitializeLogger()
     {
+        Debug.Log(Application.persistentDataPath);
         if (isInitialized) return;
 
         string logDirectory = Path.Combine(Application.persistentDataPath, "Logs");
@@ -40,7 +41,7 @@ public class EventLogger : MonoBehaviour
             InitializeLogger();
         }
 
-        float timestamp = Time.realtimeSinceStartup;
+        string timestamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
         string line = timestamp + "," +
                       eventType + "," +
