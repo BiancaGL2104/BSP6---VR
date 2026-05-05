@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "XRI Default Input Actions",
     "maps": [
         {
@@ -1037,6 +1038,17 @@
                     "name": "",
                     "id": "87d9a1e7-704b-43bb-be2a-f2d8ecfde8b7",
                     "path": "<KHRSimpleController>{LeftHand}/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abee5149-db29-4fe9-88db-ac7b1976e021",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -2130,6 +2142,17 @@
                     "name": "",
                     "id": "69580c32-8c9a-47d9-8b23-b53d760ca5da",
                     "path": "<KHRSimpleController>{RightHand}/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "599ddc86-4892-448f-b03f-0098804fcd8d",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
