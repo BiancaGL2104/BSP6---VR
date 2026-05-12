@@ -9228,9 +9228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b720a40a41494223a918367d89477ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LSLEventStreamer
-  streamName: UnityExperimentEvents
+  streamName: DataSyncMarker
   streamType: Markers
-  sourceId: bsp6.unity.events
+  sourceId: 12345
 --- !u!1 &1759464146
 GameObject:
   m_ObjectHideFlags: 0

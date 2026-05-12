@@ -7,9 +7,9 @@ public class LSLEventStreamer : MonoBehaviour
     public static LSLEventStreamer Instance { get; private set; }
 
     [Header("LSL Stream Settings")]
-    [SerializeField] private string streamName = "UnityExperimentEvents";
+    [SerializeField] private string streamName = "DataSyncMarker";
     [SerializeField] private string streamType = "Markers";
-    [SerializeField] private string sourceId = "bsp6.unity.events";
+    [SerializeField] private string sourceId = "12345";
 
     private StreamOutlet outlet;
     private bool isInitialized = false;
@@ -48,6 +48,8 @@ public class LSLEventStreamer : MonoBehaviour
             isInitialized = true;
 
             Debug.Log("[LSL] Outlet initialized: " + streamName);
+
+            SendMarker("UNITY_STREAM_STARTED");
         }
         catch (Exception e)
         {
