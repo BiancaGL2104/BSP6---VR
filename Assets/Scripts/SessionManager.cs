@@ -23,6 +23,7 @@ public class SessionManager : MonoBehaviour
     public MemoryGameManager memoryGameManager;
     public VisualDistractorManager visualDistractorManager;
     public AudioDistractorManager audioDistractorManager;
+    public ExperimentStartScreen experimentStartScreen;
 
     [Header("UI")]
     public TMP_Text sessionStatusText;
@@ -96,6 +97,37 @@ public class SessionManager : MonoBehaviour
 
         conditionManager.SetCondition(condition.visualCondition, condition.audioCondition);
 
+        Debug.Log("=== READY FOR SESSION CONDITION ===");
+        Debug.Log("Index: " + currentConditionIndex);
+        Debug.Log("Condition ID: " + conditionManager.GetConditionId());
+
+        SetSessionStatus("Ready for " + conditionManager.GetConditionId());
+
+        if (currentConditionIndex == 0)
+        {
+            ConfirmConditionStart();
+            return;
+        }
+
+        if (experimentStartScreen != null)
+        {
+            experimentStartScreen.ShowConditionStartScreen(
+                currentConditionIndex + 1,
+                conditionManager.GetConditionId()
+            );
+        }
+        else
+        {
+            Debug.LogWarning("ExperimentStartScreen is not assigned. Starting condition immediately.");
+            ConfirmConditionStart();
+        }
+    }
+
+    public void ConfirmConditionStart()
+    {
+        if (!sessionActive)
+            return;
+
         Debug.Log("=== STARTING SESSION CONDITION ===");
         Debug.Log("Index: " + currentConditionIndex);
         Debug.Log("Condition ID: " + conditionManager.GetConditionId());
@@ -108,8 +140,8 @@ public class SessionManager : MonoBehaviour
         {
             memoryGameManager.roundIndex = currentConditionIndex + 1;
             memoryGameManager.StartRound();
+            StartDistractorsForCurrentCondition();
         }
-        
     }
 
     public void OnConditionCompleted()
