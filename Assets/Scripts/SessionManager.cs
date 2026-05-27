@@ -37,6 +37,9 @@ public class SessionManager : MonoBehaviour
     private Coroutine audioLoopCoroutine;
     private bool sessionActive = false;
 
+    [Header("Eye Tracking")]
+    public SRanipalRecord srRecord;
+
     private void Start()
     {
         Debug.Log("SessionManager Start on: " + gameObject.name 
@@ -75,8 +78,8 @@ public class SessionManager : MonoBehaviour
         }
 
         sessionActive = true;
-        currentConditionIndex = -1;
-
+        currentConditionIndex = -1;       
+        
         SetSessionStatus("Session started");
         StartNextCondition();
     }
@@ -103,11 +106,11 @@ public class SessionManager : MonoBehaviour
 
         SetSessionStatus("Ready for " + conditionManager.GetConditionId());
 
-        if (currentConditionIndex == 0)
-        {
-            ConfirmConditionStart();
-            return;
-        }
+        //if (currentConditionIndex == 0)
+        //{
+        //    ConfirmConditionStart();
+        //    return;
+        //}
 
         if (experimentStartScreen != null)
         {
@@ -134,8 +137,6 @@ public class SessionManager : MonoBehaviour
 
         SetSessionStatus("Running " + conditionManager.GetConditionId());
 
-        StartDistractorsForCurrentCondition();
-
         if (memoryGameManager != null)
         {
             memoryGameManager.roundIndex = currentConditionIndex + 1;
@@ -148,6 +149,16 @@ public class SessionManager : MonoBehaviour
     {
         if (!sessionActive)
             return;
+
+        if (srRecord != null)
+        {
+            Debug.Log("Ending eye tracking recording for condition!");
+            srRecord.StopRecording();
+        }
+        else
+        {
+            Debug.LogWarning("Tried to stop recording eye data without the recorder!");
+        }
 
         Debug.Log("Condition complete: " + conditionManager.GetConditionId());
 

@@ -4176,6 +4176,7 @@ MonoBehaviour:
   blackScreenPanel: {fileID: 649941614}
   messageText: {fileID: 0}
   sessionManager: {fileID: 1012059063}
+  srRecord: {fileID: 1054720631}
 --- !u!1 &649977187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,7 +6005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1707266662751158, guid: f676e25d0fcd1ec4fa22af3017316de9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4879914434278830, guid: f676e25d0fcd1ec4fa22af3017316de9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6748,7 +6749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8518324294302271954, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9490,7 +9491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1743158380
 Transform:
   m_ObjectHideFlags: 0
@@ -10663,6 +10664,7 @@ MonoBehaviour:
   blackScreenPanel: {fileID: 649941614}
   messageText: {fileID: 0}
   sessionManager: {fileID: 1012059063}
+  srRecord: {fileID: 1054720631}
 --- !u!4 &1939679597
 Transform:
   m_ObjectHideFlags: 0
@@ -12110,6 +12112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152056932}
     m_Modifications:
+    - target: {fileID: 1706664672075919121, guid: 71a899fc33bd34889953972d3bf61d5b, type: 3}
+      propertyPath: srRecord
+      value: 
+      objectReference: {fileID: 1054720631}
     - target: {fileID: 1706664672075919121, guid: 71a899fc33bd34889953972d3bf61d5b, type: 3}
       propertyPath: conditionManager
       value: 

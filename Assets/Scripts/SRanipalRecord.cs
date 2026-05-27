@@ -172,11 +172,19 @@ public class SRanipalRecord : MonoBehaviour
 
     private void OnDisable()
     {
+        if (isRecording)
+        {
+            StopRecording();
+        }
         Release();
     }
 
     void OnApplicationQuit()
     {
+        if (isRecording) 
+        {
+            StopRecording();
+        }
         Release();
     }
 

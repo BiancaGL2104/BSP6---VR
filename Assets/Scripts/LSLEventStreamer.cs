@@ -23,6 +23,7 @@ public class LSLEventStreamer : MonoBehaviour
         }
 
         Instance = this;
+        DontDestroyOnLoad(gameObject);
         InitializeOutlet();
     }
 
@@ -56,6 +57,13 @@ public class LSLEventStreamer : MonoBehaviour
             isInitialized = false;
             Debug.LogError("[LSL] Failed to initialize outlet: " + e.Message);
         }
+    }
+
+    private void OnDestroy()
+    {
+        outlet?.Dispose();
+        outlet = null;
+        isInitialized = false;
     }
 
     public void SendMarker(string marker)
@@ -94,8 +102,9 @@ public class LSLEventStreamer : MonoBehaviour
             sessionId = ExperimentSessionInfo.Instance.SessionId;
         }
 
-        string marker =
-            $"session={sessionId};event={eventType};round={roundIndex};condition={conditionId};object={objectId};extra1={extra1};extra2={extra2}";
+        string extra1Part = extra1 == "NA" ? "" : $"|{extra1}";
+        string extra2Part = extra2 == "NA" ? "" : $"|{extra2}";
+        string marker = $"{sessionId}|{eventType}|{roundIndex}|{conditionId}|{objectId}{extra1Part}{extra2Part}";
 
         SendMarker(marker);
     }

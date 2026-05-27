@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class ExperimentStartScreen : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class ExperimentStartScreen : MonoBehaviour
     private bool waitingForSessionStart = true;
     private bool waitingForConditionStart = false;
 
+    [Header("Eye Tracking")]
+    public SRanipalRecord srRecord;
+
     void Start()
     {
         ShowSessionStartScreen();
@@ -27,7 +31,7 @@ public class ExperimentStartScreen : MonoBehaviour
         if (waitingForSessionStart && Input.GetKeyDown(sessionStartKey))
         {
             waitingForSessionStart = false;
-            HideBlackScreen();
+            // HideBlackScreen();
 
             if (sessionManager != null)
                 sessionManager.StartSession();
@@ -39,6 +43,16 @@ public class ExperimentStartScreen : MonoBehaviour
         {
             waitingForConditionStart = false;
             HideBlackScreen();
+
+            if (srRecord != null)
+            {
+                Debug.Log("Starting eye tracking for condition!");
+                srRecord.StartRecord();
+            }
+            else
+            {
+                Debug.LogWarning("Tried to start recording eye data without the recorder!");
+            }
 
             if (sessionManager != null)
                 sessionManager.ConfirmConditionStart();
