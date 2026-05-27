@@ -212,25 +212,37 @@ public class SessionManager : MonoBehaviour
 
     private IEnumerator HandleUnpredictableVisualLoop()
     {
-        while (sessionActive && conditionManager != null && conditionManager.IsVisualUnpredictable())
+        if (visualDistractorManager != null)
         {
             visualDistractorManager.ShowDistractorAtRandomZone();
-            yield return new WaitForSeconds(12f);
+        }
 
+        while (sessionActive && conditionManager != null && conditionManager.IsVisualUnpredictable())
+        {
+            yield return null;
+        }
+
+        if (visualDistractorManager != null)
+        {
             visualDistractorManager.HideDistractor();
-            yield return new WaitForSeconds(2f);
         }
     }
 
     private IEnumerator HandleUnpredictableAudioLoop()
     {
-        while (sessionActive && conditionManager != null && conditionManager.IsAudioUnpredictable())
+        if (audioDistractorManager != null)
         {
             audioDistractorManager.PlayUnpredictableOrbitAudio();
-            yield return new WaitForSeconds(12f);
+        }
 
+        while (sessionActive && conditionManager != null && conditionManager.IsAudioUnpredictable())
+        {
+            yield return null;
+        }
+
+        if (audioDistractorManager != null)
+        {
             audioDistractorManager.StopAudioDistractor();
-            yield return new WaitForSeconds(2f);
         }
     }
 
