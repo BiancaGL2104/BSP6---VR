@@ -1,0 +1,9 @@
+participant,folder,has_event_log,event_log,has_eye_tracking,eye_tracking,n_xdf_files,xdf_files
+P01,data/01,True,data/01/event_log_P01.csv,True,data/01/eyetracking-raw_P01.csv,1,data/01/lab_recorder_P01.xdf
+P02,data/02,True,data/02/event_log_P02.csv,True,data/02/eyetracking-raw_P02.csv,2,data/02/lab_recorder_run2_P02.xdf; data/02/lab_recorder_run1_P02.xdf
+P03,data/03,True,data/03/event_log_P03.csv,True,data/03/eyetracking-raw_P03.csv,1,data/03/labrecorder_P03.xdf
+P04,data/04,True,data/04/event_log_P04.csv,True,data/04/eyetracking-raw_P04.csv,1,data/04/labrecorder_P04.xdf
+P05,data/05,True,data/05/event_log_P05.csv,True,data/05/eyetracking-raw_P05.csv,1,data/05/labrecorder_P05.xdf
+P06,data/06,True,data/06/event_log_P06.csv,True,data/06/eyetracking-raw_P06.csv,1,data/06/labrecorder_P06.xdf
+P07,data/07,True,data/07/event_log_P07.csv,True,data/07/eyetracking-raw_P07.csv,1,data/07/labrecorder_P07.xdf
+P08,data/08,True,data/08/event_log_P08.csv,True,data/08/eyetracking-raw_P08.csv,1,data/08/labrecorder_P08.xdf
