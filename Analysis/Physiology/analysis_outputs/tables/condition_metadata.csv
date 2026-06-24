@@ -1,0 +1,19 @@
+round_index,condition,condition_group,predictability,label
+1,C1_No_Distraction,No distraction,None,"C1
+No"
+2,C2_Visual_Predictable,Visual only,Predictable,"C2
+Vis-P"
+3,C3_Visual_Unpredictable,Visual only,Unpredictable,"C3
+Vis-U"
+4,C4_Audio_Predictable,Audio only,Predictable,"C4
+Aud-P"
+5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,Predictable,"C5
+VisP+AudP"
+6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,Mixed,"C6
+VisU+AudP"
+7,C7_Audio_Unpredictable,Audio only,Unpredictable,"C7
+Aud-U"
+8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,Mixed,"C8
+VisP+AudU"
+9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,Unpredictable,"C9
+VisU+AudU"

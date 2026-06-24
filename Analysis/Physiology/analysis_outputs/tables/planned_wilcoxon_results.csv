@@ -1,0 +1,16 @@
+measure,condition_a,condition_b,n,statistic,p_value,status,p_bonferroni
+delta_eda_local,C1_No_Distraction,C5_VisualPredictable_AudioPredictable,5,6.0,0.8125,OK,1.0
+delta_hr_local,C1_No_Distraction,C5_VisualPredictable_AudioPredictable,5,3.0,0.3125,OK,1.0
+delta_pupil_local,C1_No_Distraction,C5_VisualPredictable_AudioPredictable,4,0.0,0.125,OK,0.625
+delta_eda_local,C1_No_Distraction,C6_VisualUnpredictable_AudioPredictable,5,4.0,0.4375,OK,1.0
+delta_hr_local,C1_No_Distraction,C6_VisualUnpredictable_AudioPredictable,5,6.0,0.8125,OK,1.0
+delta_pupil_local,C1_No_Distraction,C6_VisualUnpredictable_AudioPredictable,4,1.0,0.25,OK,1.0
+delta_eda_local,C1_No_Distraction,C9_VisualUnpredictable_AudioUnpredictable,5,5.0,0.625,OK,1.0
+delta_hr_local,C1_No_Distraction,C9_VisualUnpredictable_AudioUnpredictable,5,5.0,0.625,OK,1.0
+delta_pupil_local,C1_No_Distraction,C9_VisualUnpredictable_AudioUnpredictable,4,0.0,0.125,OK,0.625
+delta_eda_local,C2_Visual_Predictable,C3_Visual_Unpredictable,5,3.0,0.3125,OK,1.0
+delta_hr_local,C2_Visual_Predictable,C3_Visual_Unpredictable,5,6.0,0.8125,OK,1.0
+delta_pupil_local,C2_Visual_Predictable,C3_Visual_Unpredictable,4,4.0,0.875,OK,1.0
+delta_eda_local,C4_Audio_Predictable,C7_Audio_Unpredictable,5,4.0,0.4375,OK,1.0
+delta_hr_local,C4_Audio_Predictable,C7_Audio_Unpredictable,5,5.0,0.625,OK,1.0
+delta_pupil_local,C4_Audio_Predictable,C7_Audio_Unpredictable,4,3.0,0.625,OK,1.0

@@ -1,0 +1,10 @@
+condition,condition_group,mean_adjusted_score,sd_adjusted_score,n_answers,n_participants
+C1_No_Distraction,No distraction,27.979166666666668,23.08493990363869,48,8
+C2_Visual_Predictable,Visual only,31.791666666666668,24.40435811562068,48,8
+C3_Visual_Unpredictable,Visual only,38.5,23.104756809671088,48,8
+C4_Audio_Predictable,Audio only,44.041666666666664,22.785734930259697,48,8
+C5_VisualPredictable_AudioPredictable,Combined visual + audio,43.25,23.940084786284032,48,8
+C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,48.541666666666664,25.20634699987315,48,8
+C7_Audio_Unpredictable,Audio only,44.25,26.303061871762896,48,8
+C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,47.354166666666664,27.341410867527493,48,8
+C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,51.604166666666664,28.52825369463137,48,8

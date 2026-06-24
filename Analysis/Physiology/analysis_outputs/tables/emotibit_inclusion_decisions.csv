@@ -1,0 +1,9 @@
+participant,n_rounds,rounds_with_eda,rounds_with_hr,rounds_with_eda_baseline,rounds_with_hr_baseline,mean_eda_samples,mean_hr_samples,included_emotibit,inclusion_reason
+P01,9,1,1,1,1,138.0,13.0,False,Excluded: incomplete EDA rounds or insufficient local baselines
+P02,9,1,0,1,0,12.0,,False,Excluded: incomplete EDA rounds or insufficient local baselines
+P03,8,0,0,0,0,,,False,Excluded: incomplete EDA rounds or insufficient local baselines
+P04,9,9,9,9,9,775.1111111111111,85.55555555555556,True,Included: complete EDA rounds and usable local baselines
+P05,9,9,9,9,9,704.6666666666666,72.66666666666667,True,Included: complete EDA rounds and usable local baselines
+P06,9,9,9,9,9,653.4444444444445,58.22222222222222,True,Included: complete EDA rounds and usable local baselines
+P07,9,9,9,9,9,793.5555555555555,82.44444444444444,True,Included: complete EDA rounds and usable local baselines
+P08,9,9,9,9,9,628.2222222222222,49.44444444444444,True,Included: complete EDA rounds and usable local baselines

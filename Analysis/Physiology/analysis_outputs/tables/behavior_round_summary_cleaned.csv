@@ -1,0 +1,73 @@
+participant,round_index,condition,condition_group,round_start,round_end,duration_sec,has_round_start,has_round_end,round_complete,card_flips,matches,mismatches,rechecks,thinking_time_events,questionnaire_answers,mean_thinking_time
+P01,1,C1_No_Distraction,No distraction,2026-05-27 11:43:12.119,2026-05-27 11:43:58.441,46.322,True,True,True,30,8,7,14,29,6,1.3451724137931036
+P01,2,C2_Visual_Predictable,Visual only,2026-05-27 11:46:13.300,2026-05-27 11:47:18.806,65.506,True,True,True,36,8,10,20,36,6,5.566111111111112
+P01,3,C3_Visual_Unpredictable,Visual only,2026-05-27 11:48:13.006,2026-05-27 11:48:50.108,37.102,True,True,True,28,8,6,12,28,6,3.261428571428571
+P01,4,C4_Audio_Predictable,Audio only,2026-05-27 11:49:50.346,2026-05-27 11:50:37.459,47.113,True,True,True,38,8,11,22,38,6,2.8244736842105254
+P01,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-27 11:51:53.780,2026-05-27 11:52:25.834,32.054,True,True,True,26,8,5,10,26,6,4.1692307692307695
+P01,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-27 11:53:07.924,2026-05-27 11:53:39.710,31.786,True,True,True,26,8,5,10,26,6,2.8423076923076924
+P01,7,C7_Audio_Unpredictable,Audio only,2026-05-27 11:54:36.620,2026-05-27 11:55:27.613,50.993,True,True,True,42,8,13,26,42,6,2.5690476190476192
+P01,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-27 11:56:35.913,2026-05-27 11:57:04.946,29.033,True,True,True,26,8,5,10,26,6,3.742692307692308
+P01,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-27 11:57:54.043,2026-05-27 11:58:33.111,39.068,True,True,True,34,8,9,18,34,6,2.5929411764705885
+P02,1,C1_No_Distraction,No distraction,2026-05-27 12:16:44.350,2026-05-27 12:18:00.028,75.678,True,True,True,42,8,13,26,41,6,1.5209756097560976
+P02,2,C2_Visual_Predictable,Visual only,2026-05-27 12:19:15.717,2026-05-27 12:20:03.173,47.456,True,True,True,32,8,8,16,32,6,3.84875
+P02,3,C3_Visual_Unpredictable,Visual only,2026-05-27 12:20:53.307,2026-05-27 12:21:48.193,54.886,True,True,True,42,8,13,26,42,6,2.5004761904761907
+P02,4,C4_Audio_Predictable,Audio only,2026-05-27 12:22:34.882,2026-05-27 12:23:17.927,43.045,True,True,True,36,8,10,20,36,6,2.491944444444444
+P02,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-27 12:23:49.440,2026-05-27 12:24:28.403,38.963,True,True,True,32,8,8,16,32,6,2.2028125
+P02,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-27 12:24:58.926,2026-05-27 12:25:41.828,42.902,True,True,True,34,8,9,18,34,6,2.16
+P02,7,C7_Audio_Unpredictable,Audio only,2026-05-27 12:26:06.582,2026-05-27 12:26:57.316,50.734,True,True,True,42,8,13,26,42,6,1.7973809523809523
+P02,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-27 12:27:27.930,2026-05-27 12:28:25.110,57.18,True,True,True,40,8,12,24,40,6,2.19475
+P02,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-27 12:28:47.007,2026-05-27 12:29:46.303,59.296,True,True,True,48,8,16,32,48,6,1.6914583333333333
+P03,1,C1_No_Distraction,No distraction,2026-05-27 12:46:15.009,2026-05-27 12:47:08.885,53.876,True,True,True,34,8,9,18,33,6,1.367878787878788
+P03,2,C2_Visual_Predictable,Visual only,2026-05-27 12:48:28.947,2026-05-27 12:49:10.230,41.283,True,True,True,30,8,7,14,30,6,4.044999999999999
+P03,3,C3_Visual_Unpredictable,Visual only,2026-05-27 12:49:53.991,2026-05-27 12:50:31.622,37.631,True,True,True,30,8,7,14,30,6,2.7136666666666667
+P03,4,C4_Audio_Predictable,Audio only,2026-05-27 12:51:11.092,2026-05-27 12:51:45.500,34.408,True,True,True,28,8,6,12,28,6,2.638928571428571
+P03,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-27 12:52:23.431,2026-05-27 12:53:00.294,36.863,True,True,True,30,8,7,14,30,6,2.4933333333333327
+P03,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-27 12:53:35.384,2026-05-27 12:54:11.218,35.834,True,True,True,30,8,7,14,30,6,2.3636666666666666
+P03,7,C7_Audio_Unpredictable,Audio only,2026-05-27 12:54:49.929,2026-05-27 12:55:25.474,35.545,True,True,True,32,8,8,16,32,6,2.32125
+P03,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-27 12:56:06.437,2026-05-27 12:56:43.375,36.938,True,True,True,28,8,6,12,28,6,2.781785714285714
+P03,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-27 12:57:24.966,2026-05-27 12:58:07.208,42.242,True,True,True,36,8,10,20,36,6,2.3283333333333336
+P04,1,C1_No_Distraction,No distraction,2026-05-28 13:13:52.651,2026-05-28 13:14:52.297,59.646,True,True,True,44,8,14,28,43,6,1.2595348837209304
+P04,2,C2_Visual_Predictable,Visual only,2026-05-28 13:16:44.729,2026-05-28 13:17:47.722,62.993,True,True,True,48,8,16,32,48,6,3.654375
+P04,3,C3_Visual_Unpredictable,Visual only,2026-05-28 13:19:24.850,2026-05-28 13:20:24.333,59.483,True,True,True,48,8,16,32,48,6,3.262708333333333
+P04,4,C4_Audio_Predictable,Audio only,2026-05-28 13:21:40.698,2026-05-28 13:22:30.233,49.535,True,True,True,50,8,17,34,50,6,2.5178
+P04,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-28 13:23:45.762,2026-05-28 13:24:39.536,53.774,True,True,True,52,8,18,36,52,6,2.4857692307692307
+P04,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-28 13:25:55.502,2026-05-28 13:26:43.959,48.457,True,True,True,46,8,15,30,46,6,2.7047826086956523
+P04,7,C7_Audio_Unpredictable,Audio only,2026-05-28 13:27:49.744,2026-05-28 13:28:40.551,50.807,True,True,True,50,8,17,34,50,6,2.3326
+P04,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 13:29:36.663,2026-05-28 13:30:15.040,38.377,True,True,True,38,8,11,22,38,6,2.485789473684211
+P04,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 13:31:21.429,2026-05-28 13:32:03.783,42.354,True,True,True,44,8,14,28,44,6,2.471363636363636
+P05,1,C1_No_Distraction,No distraction,2026-05-28 13:43:18.521,2026-05-28 13:44:09.088,50.567,True,True,True,38,8,11,22,37,6,1.236756756756757
+P05,2,C2_Visual_Predictable,Visual only,2026-05-28 13:45:15.385,2026-05-28 13:45:49.672,34.287,True,True,True,30,8,7,14,30,6,3.352666666666667
+P05,3,C3_Visual_Unpredictable,Visual only,2026-05-28 13:46:45.848,2026-05-28 13:47:37.093,51.245,True,True,True,44,8,14,28,44,6,2.441363636363636
+P05,4,C4_Audio_Predictable,Audio only,2026-05-28 13:48:27.459,2026-05-28 13:49:25.555,58.096,True,True,True,50,8,17,34,50,6,2.1688
+P05,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-28 13:50:06.399,2026-05-28 13:50:51.113,44.714,True,True,True,42,8,13,26,42,6,2.0380952380952384
+P05,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-28 13:51:26.067,2026-05-28 13:52:35.501,69.434,True,True,True,58,8,21,42,58,6,1.8
+P05,7,C7_Audio_Unpredictable,Audio only,2026-05-28 13:53:27.166,2026-05-28 13:53:58.144,30.978,True,True,True,28,8,6,12,28,6,2.951428571428571
+P05,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 13:55:03.281,2026-05-28 13:55:46.397,43.116,True,True,True,38,8,11,22,38,6,2.8486842105263146
+P05,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 13:56:21.913,2026-05-28 13:57:03.286,41.373,True,True,True,38,8,11,22,38,6,2.0228947368421055
+P06,1,C1_No_Distraction,No distraction,2026-05-28 14:14:32.917,2026-05-28 14:15:10.896,37.979,True,True,True,28,8,6,12,27,6,1.3129629629629629
+P06,2,C2_Visual_Predictable,Visual only,2026-05-28 14:17:21.165,2026-05-28 14:18:18.688,57.523,True,True,True,38,8,11,22,38,6,4.9418421052631585
+P06,3,C3_Visual_Unpredictable,Visual only,2026-05-28 14:19:43.486,2026-05-28 14:20:22.393,38.907,True,True,True,32,8,8,16,32,6,3.8649999999999993
+P06,4,C4_Audio_Predictable,Audio only,2026-05-28 14:21:24.342,2026-05-28 14:22:17.864,53.522,True,True,True,42,8,13,26,42,6,2.7485714285714287
+P06,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-28 14:23:09.022,2026-05-28 14:23:49.342,40.32,True,True,True,34,8,9,18,34,6,2.690588235294118
+P06,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-28 14:24:44.402,2026-05-28 14:25:35.592,51.19,True,True,True,44,8,14,28,44,6,2.4145454545454546
+P06,7,C7_Audio_Unpredictable,Audio only,2026-05-28 14:26:21.217,2026-05-28 14:26:57.693,36.476,True,True,True,32,8,8,16,32,6,2.5659375000000004
+P06,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 14:27:55.714,2026-05-28 14:28:33.031,37.317,True,True,True,32,8,8,16,32,6,2.9796875
+P06,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 14:29:31.096,2026-05-28 14:30:10.700,39.604,True,True,True,32,8,8,16,32,6,3.0512499999999996
+P07,1,C1_No_Distraction,No distraction,2026-05-28 14:53:35.437,2026-05-28 14:54:46.536,71.099,True,True,True,34,8,9,18,33,6,1.7148484848484848
+P07,2,C2_Visual_Predictable,Visual only,2026-05-28 14:56:36.740,2026-05-28 14:57:59.002,82.262,True,True,True,50,8,17,34,50,6,3.8498
+P07,3,C3_Visual_Unpredictable,Visual only,2026-05-28 14:59:51.097,2026-05-28 15:00:51.028,59.931,True,True,True,40,8,12,24,40,6,4.29925
+P07,4,C4_Audio_Predictable,Audio only,2026-05-28 15:01:54.697,2026-05-28 15:02:36.322,41.625,True,True,True,34,8,9,18,34,6,3.0976470588235294
+P07,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-28 15:03:36.705,2026-05-28 15:04:18.397,41.692,True,True,True,32,8,8,16,32,6,3.190625
+P07,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-28 15:05:29.232,2026-05-28 15:06:28.360,59.128,True,True,True,44,8,14,28,44,6,2.953181818181818
+P07,7,C7_Audio_Unpredictable,Audio only,2026-05-28 15:07:24.425,2026-05-28 15:08:07.755,43.33,True,True,True,36,8,10,20,36,6,2.761666666666667
+P07,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 15:09:06.967,2026-05-28 15:09:47.603,40.636,True,True,True,34,8,9,18,34,6,2.9373529411764703
+P07,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 15:10:46.378,2026-05-28 15:11:22.149,35.771,True,True,True,30,8,7,14,30,6,3.151666666666667
+P08,1,C1_No_Distraction,No distraction,2026-05-28 15:18:55.737,2026-05-28 15:19:44.359,48.622,True,True,True,26,8,5,10,25,6,1.7575999999999998
+P08,2,C2_Visual_Predictable,Visual only,2026-05-28 15:20:44.958,2026-05-28 15:21:28.266,43.308,True,True,True,28,8,6,12,28,6,3.7107142857142854
+P08,3,C3_Visual_Unpredictable,Visual only,2026-05-28 15:22:13.460,2026-05-28 15:23:02.235,48.775,True,True,True,30,8,7,14,30,6,3.1326666666666667
+P08,4,C4_Audio_Predictable,Audio only,2026-05-28 15:23:44.973,2026-05-28 15:24:29.132,44.159,True,True,True,30,8,7,14,30,6,2.8970000000000002
+P08,5,C5_VisualPredictable_AudioPredictable,Combined visual + audio,2026-05-28 15:25:10.376,2026-05-28 15:26:00.010,49.634,True,True,True,34,8,9,18,34,6,2.6714705882352945
+P08,6,C6_VisualUnpredictable_AudioPredictable,Combined visual + audio,2026-05-28 15:26:34.093,2026-05-28 15:27:09.881,35.788,True,True,True,24,8,4,8,24,6,2.9125
+P08,7,C7_Audio_Unpredictable,Audio only,2026-05-28 15:27:42.605,2026-05-28 15:28:16.511,33.906,True,True,True,26,8,5,10,26,6,2.5626923076923074
+P08,8,C8_VisualPredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 15:28:44.669,2026-05-28 15:29:18.907,34.238,True,True,True,24,8,4,8,24,6,2.5995833333333334
+P08,9,C9_VisualUnpredictable_AudioUnpredictable,Combined visual + audio,2026-05-28 15:29:54.743,2026-05-28 15:30:33.073,38.33,True,True,True,28,8,6,12,28,6,2.6482142857142854

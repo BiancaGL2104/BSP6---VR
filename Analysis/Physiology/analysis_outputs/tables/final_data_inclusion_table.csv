@@ -1,0 +1,9 @@
+participant,event_log_available,behavior_rounds,included_behavior,included_questionnaire,included_emotibit,included_eye_tracking
+P01,True,9,True,True,False,False
+P02,True,9,True,True,False,False
+P03,True,9,True,True,False,False
+P04,True,9,True,True,True,True
+P05,True,9,True,True,True,True
+P06,True,9,True,True,True,True
+P07,True,9,True,True,True,False
+P08,True,9,True,True,True,True
